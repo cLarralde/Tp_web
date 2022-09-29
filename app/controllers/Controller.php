@@ -1,6 +1,6 @@
 <?php
 require_once './app/models/categorias.Model.php';
-require_once './app/models/juego.Model.php';
+require_once './app/models/JuegoModel.php';
 require_once './app/views/View.php';
 class Controller {
     private $juegosModel;
