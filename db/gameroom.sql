@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2022 a las 22:26:45
+-- Tiempo de generación: 29-09-2022 a las 23:55:36
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -85,6 +85,19 @@ INSERT INTO `juegos` (`id`, `logo`, `nombre`, `fecha_lanzamiento`, `descripsion`
 (20, 'https://drive.google.com/file/d/17WdkkuXwkqKYNx4sIDRdAeiKW1VDbgTS/view?usp=sharing', 'Need for Speed™ Hot Pursuit Remastered', ' 6 NOV 2020', 'Siente la emoción de la persecución y la adrenalina de escapar sobre ruedas con los coches de mayor rendimiento del mundo en Need for Speed™ Hot Pursuit Remastered, un juego de carreras trepidante y competitivo.', '74', ' 45 GB', 'ARS$ 1.799,00', 4),
 (21, 'https://drive.google.com/file/d/1GaLwVQUJKJRnXZFAjQ2pcb4-pJ10_kfd/view?usp=sharing', 'Total War: WARHAMMER III', ' 17 FEB 2022', 'El final cataclísmico de la trilogía de Total War™: WARHAMMER® ha llegado. Reagrupa a tus fuerzas y adéntrate en el Reino del Caos, una dimensión de terrores horripilantes en la que se decidirá el destino del mundo. ¿Conquistarás a tus demonios... o los dirigirás?', '86', ' 120 GB', 'ARS$ 3.920,99', 3);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(28) NOT NULL,
+  `password` text NOT NULL,
+  `rol` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -103,6 +116,12 @@ ALTER TABLE `juegos`
   ADD KEY `fk_id_categoria` (`fk_id_categoria`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -117,6 +136,12 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `juegos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
