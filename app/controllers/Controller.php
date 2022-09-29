@@ -1,19 +1,23 @@
 <?php
-require_once './app/models/Model.php';
+require_once './app/models/categorias.Model.php';
+require_once './app/models/juego.Model.php';
 require_once './app/views/View.php';
 class Controller {
-    private $model;
+    private $juegosModel;
+    private $categoriasModel;
     private $view;
     public function __construct()
     {
-        $this->model=new Model();
+        $this->juegosModel=new JuegoModel();
+        $this->categoriasModel=new CategoriasModel();
         $this->view=new View();
     }
     function showHome(){
-      $juegos=$this->model->traer_items();
+      $juegos=$this->juegosModel->traer_items();
       $this->view->showGames($juegos);
-      $categorias=$this->model->traer_categorias();
-      $juego_por_categoria=$this->model->traer_juegos_categoria($id=2);
+      $categorias=$this->categoriasModel->traer_categorias();
+      var_dump($categorias);
+      $juego_por_categoria=$this->juegosModel->traer_juegos_categoria(2);
       var_dump($juego_por_categoria);
     }
     

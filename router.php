@@ -23,9 +23,9 @@ switch ($params[0]) {
         $taskController->showHome();
         break;
     case 'categorias':
-        showCategories();
+        // showCategories();
         break;
     case 'colaboradores':
-        showCollaborators();
+        // showCollaborators();
         break;
 }
