@@ -25,6 +25,7 @@ switch ($params[0]) {
         $categoryController->showHome();
         break;
     case 'categorias':
+        echo'categorias';
         // showCategories();
         break;
     case 'colaboradores':

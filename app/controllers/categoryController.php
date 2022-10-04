@@ -1,6 +1,6 @@
 <?php
-require_once './app/models/categoryModel.php';
-require_once './app/views/categoryView.php';
+require_once './app/models/CategoryModel.php';
+require_once './app/views/CategoryView.php';
 class CategoryController {
     private $categoryModel;
     private $categoryView;
@@ -10,7 +10,7 @@ class CategoryController {
         $this->categoryView=new CategoryView();
     }
     function showHome(){
-        $categories=$this->categoryModel->getCategory();
+        $categories=$this->categoryModel->getCategories();
         var_dump($categories);
     }
 }

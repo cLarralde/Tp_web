@@ -1,17 +1,23 @@
-<?php
-class GameView
-{
-    function __construct()
-    {
-    }
-function showGames($games)
-    {
-        include_once('libreria/header.php');
-        echo "<ul>";
-        foreach ($games as $game) {
 
-            echo '<li>' . $game->nombre . ', ' . $game->fecha_lanzamiento
-                . ', ' . $game->peso . ', ' . $game->precio . ', ' . '</li>';
-        }
+<?php
+require_once "./libs/smarty/Smarty.class.php";
+
+class GameView{
+
+    
+
+    private $title;
+    
+
+    function __construct(){
+        $this->title = "Gameroom";
+    }
+
+    function showGamesCategory($items){
+
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('games_cat',$items);
+        $smarty->display('templates/gameList.tpl'); // muestro el template 
     }
 }
