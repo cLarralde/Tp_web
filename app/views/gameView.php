@@ -13,11 +13,17 @@ class GameView{
         $this->title = "Gameroom";
     }
 
-    function showGamesCategory($items){
+    function showGamesCategory($items_c){
 
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
-        $smarty->assign('games_cat',$items);
-        $smarty->display('templates/gameList.tpl'); // muestro el template 
+        $smarty->assign('games_cat',$items_c);
+        $smarty->display('templates/gamesCategories.tpl'); // muestro el template 
+    }
+    function showViewItems($items){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('games',$items);
+        $smarty->display('templates/gamesList.tpl'); // muestro el template 
     }
 }

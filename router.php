@@ -21,8 +21,9 @@ $categoryController = new categoryController();
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'inicio':
-        $gameController->showHome();
-        $categoryController->showHome();
+       $gameController->showHome();
+        // $gameController->showCategoriesItems();
+        // $categoryController->showHome();
         break;
     case 'categorias':
         echo'categorias';
