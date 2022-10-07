@@ -12,10 +12,9 @@ class GameController {
         $this->categoryModel= new CategoryModel();
         $this->gameView=new GameView();
     }
-    function showHome(){
-      $items = $this->gameModel->getItems();
-      $this->gameView->showViewItems($items);
-      // var_dump($items);
+    function showHome(){ //esta funcion se llama en el router y trayendo la consulta y luego mostrandola en la view
+      $items = $this->gameModel->getItems(); //traigo todos los juegos y los guardo en $items
+      $this->gameView->showViewItems($items);//mando el arreglo asociativo hacia View
     }
   
     function showCategoriesItems($id_cat) {
@@ -29,7 +28,7 @@ class GameController {
             $juegos = new stdClass();
             $juegos->nombre = $item->nombre;
             $juegos->fecha_lanzamiento = $item->fecha_lanzamiento;
-            $juegos->pato = $categoria->nombre;
+            $juegos->categoria = $categoria->nombre;
             array_push($arrayjuegos, $juegos);
           }
         }
