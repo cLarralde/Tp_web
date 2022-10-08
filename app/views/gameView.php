@@ -24,6 +24,7 @@ class GameView{
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
         $smarty->assign('games',$items);
+        $smarty->assign('categorias',$categories);
         $smarty->display('templates/gamesList.tpl'); // muestro el template 
     }
 }

@@ -11,6 +11,6 @@ class CategoryController {
     }
     function showHome(){
         $categories=$this->categoryModel->getCategories();
-        var_dump($categories);
+       
     }
 }

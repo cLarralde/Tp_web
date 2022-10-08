@@ -1,6 +1,7 @@
 <?php
 require_once './app/controllers/categoryController.php';
 require_once './app/controllers/gameController.php';
+require_once './app/controllers/AdminController.php';
 
 // defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -17,19 +18,21 @@ $params = explode('/', $action);
 
 $gameController = new gameController();
 $categoryController = new categoryController();
-
+$adminController = new AdminController();
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'inicio':
        $gameController->showHome();
+       die();
         // $gameController->showCategoriesItems();
         // $categoryController->showHome();
         break;
     case 'categorias':
-        echo'categorias';
-        // showCategories();
+      if(isset($params[1])){
+         $id_cat=$_GET['']
+      }
         break;
-    case 'colaboradores':
-        // showCollaborators();
+    case 'agregar':
+       $adminController->insertItemBd();
         break;
 }

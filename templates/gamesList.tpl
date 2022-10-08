@@ -1,4 +1,4 @@
-{include file="header.tpl"} <body>
+{include file="header.tpl"}
 <ul class="list_games">
         {foreach from=$games item=game}
           <li>Logo:<img src="{$game->logo}" alt="Logo de {$game->nombre}"></li>

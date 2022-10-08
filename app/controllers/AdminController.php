@@ -9,5 +9,18 @@
         $this->adminModel= new AdminModel();
         $this->adminView= new AdminView();
     }
-    
+   function insertItemBd(){
+    $this->adminView->insertView();
+    if(isset($_POST['input_logo'],$_POST['input_nombre'],$_POST['input_fecha'],$_POST['input_description'],$_POST['input_valorizacion'],$_POST['input_peso'],$_POST['input_precio'],$_POST['input_genero_fk'])){
+     $logo=$_POST['input_logo'];
+     $nombre=$_POST['input_nombre'];
+     $fecha=$_POST['input_fecha'];
+     $descripcion=$_POST['input_description'];
+     $valorizacion=$_POST['input_valorizacion'];
+     $peso=$_POST['input_peso'];
+     $precio=$_POST['input_precio'];
+     $genero_fk=$_POST['input_genero_fk'];
+     $this->adminModel->insertNewItem($logo,$nombre,$fecha,$descripcion,$valorizacion,$peso,$precio,$genero_fk);
+    }
+  } 
  }
