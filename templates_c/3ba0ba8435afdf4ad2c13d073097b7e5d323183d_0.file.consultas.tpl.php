@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-08 21:47:29
+/* Smarty version 4.2.1, created on 2022-10-09 00:33:15
   from 'C:\xampp\htdocs\Trabajo_especial\templates\consultas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6341d3d1997f82_00597541',
+  'unifunc' => 'content_6341faaba31772_22039749',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3ba0ba8435afdf4ad2c13d073097b7e5d323183d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\consultas.tpl',
-      1 => 1665258417,
+      1 => 1665258741,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6341d3d1997f82_00597541 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6341faaba31772_22039749 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
 
   <div class="formDeleteItem">
-    <form action="agregar" method="POST">
+    <form action="agregar" method="GET">
       <select>
         <option value="<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
 " name="<?php echo $_smarty_tpl->tpl_vars['game']->value->nombre;?>

@@ -21,9 +21,8 @@ $categoryController = new categoryController();
 $adminController = new AdminController();
 // determina que camino seguir según la acción
 switch ($params[0]) {
-    case 'inicio':
-       $gameController->showHome();
-       $categoryController->showHome();
+  case 'inicio':
+    $gameController->showHome();
         // $gameController->showCategoriesItems();
         break;
    // case 'categorias':
@@ -31,11 +30,29 @@ switch ($params[0]) {
         // $id_cat=$_GET['']
     //  }
       //  break;
-    case 'agregar':
-      $categoryController->showHome();
-       $adminController->insertItemBd();
-       $adminController->insertcategoryBd();
-       
-       $adminController->deleteItem();
+      case 'game':
+        if(isset($params[1])){
+          $gameController->showItem($params[1]);
+        }
         break;
+      case 'iniciarsesion':
+        $adminController->insertform();
+        $categoryController->showHome();
+        if(isset($params[1])){
+            if($params[1]=='agregarItem') {
+              $adminController->insertItemBd();
+              $adminController->insertform();
+              $categoryController->showHome();
+            }
+            if($params[1]=='agregarCat') {
+              $adminController->insertcategoryBd();
+              $adminController->insertform();
+              $categoryController->showHome();
+            }
+            if($params[1]=='deleteItem') {
+              $adminController->deleteItem();
+              $adminController->insertform();
+              $categoryController->showHome();
+            }
+          }
 }

@@ -9,8 +9,5 @@ class CategoryController {
         $this->categoryModel=new CategoryModel();
         $this->categoryView=new CategoryView();
     }
-    function showHome(){
-        $categories=$this->categoryModel->getCategories();
-       $this->categoryView->navbar($categories);
-    }
+
 }

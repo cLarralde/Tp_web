@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+a{
+  color: #fff;
+}
+ul li{
+  text-decoration: none;
+}
+.gameCards{
+text-align: center;
+border: 0.5rem solid #CA3E47;
+margin: 0.5rem;
+  background-color: #414141;
+  color:#fff
+}
 *{
   margin: 0;
   padding: 0;
@@ -7,10 +20,8 @@
   text-decoration: none;
 }
 header{
+  grid-area: header;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: #ffffff;
 }
 .header_superior{

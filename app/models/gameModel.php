@@ -16,13 +16,11 @@ class GameModel
     }
     function getItem($id)
     { //Traer el detalle de un item
-        $query = $this->db->prepare('SELECT g.nombre,g.fecha_lanzamiento,g.peso,g.precio FROM juegos AS g WHERE g.id=?'); // and para agregar mas de un parametro o or
+        $query = $this->db->prepare('SELECT g.logo, g.nombre,g.fecha_lanzamiento, g.descripcion, g.valorizacion, g.peso , g.precio FROM juegos AS g WHERE g.id=?'); // and para agregar mas de un parametro o or
         $query->execute([$id]); // en el orden en el cual le mando los valores
         // $query->execute(array($id,$nombre));
         $game = $query->fetch(PDO::FETCH_OBJ); //fetch un solo resultado
         return $game;
     }
-    function deleteItem($id)
-    {
-    }
+
 }

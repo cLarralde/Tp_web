@@ -16,7 +16,6 @@ class CategoryView{
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
         $smarty->assign('categorias',$categorias);
-        var_dump($categorias);
         $smarty->display('templates/header.tpl');
     }  
 }

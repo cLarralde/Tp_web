@@ -26,4 +26,12 @@ class GameView{
         $smarty->assign('games',$items);
         $smarty->display('templates/gamesList.tpl'); // muestro el template 
     }
+
+    function showViewItem($game){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('game',$game);
+        $smarty->display('templates/gameSelect.tpl'); // muestro el template 
+    }
+
 }
