@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-08 15:01:17
+/* Smarty version 4.2.1, created on 2022-10-08 21:29:34
   from 'C:\xampp\htdocs\Trabajo_especial\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6341749dc3dad4_93377022',
+  'unifunc' => 'content_6341cf9e4f7fb9_19112978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1d5cf0b11308c928aef5b1c1602a93c1570b0c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\header.tpl',
-      1 => 1665232214,
+      1 => 1665257205,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6341749dc3dad4_93377022 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6341cf9e4f7fb9_19112978 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -53,12 +53,20 @@ function content_6341749dc3dad4_93377022 (Smarty_Internal_Template $_smarty_tpl)
             <ul>
               <li><a href="inicio">Inicio</a></li>
               <li><a href="categorias">Categoria</a>
-                <ul>
-                <li><a href="categorias/accion" name>Accion</a></li>
-                <li><a href="categorias/supervivencia">Supervivencia</a></li>
-                <li><a href="categorias/estrategia">Estrategia</a></li>
-                <li><a href="categorias/carreras">Carreras</a></li>
-                                </ul>
+               <ul>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>
+                       <li><a href="categorias/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
+" ><?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
+</a></li>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> 
+                </ul>
               </li>
               <li><a href="colaboradores">Colaboradores</a></li>
               <li><a href="agregar">Iniciar Sesion</a></li>

@@ -11,6 +11,6 @@ class CategoryController {
     }
     function showHome(){
         $categories=$this->categoryModel->getCategories();
-       
+       $this->categoryView->navbar($categories);
     }
 }

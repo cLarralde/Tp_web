@@ -23,9 +23,8 @@ $adminController = new AdminController();
 switch ($params[0]) {
     case 'inicio':
        $gameController->showHome();
-       die();
+       $categoryController->showHome();
         // $gameController->showCategoriesItems();
-        // $categoryController->showHome();
         break;
    // case 'categorias':
      // if(isset($params[1])){
@@ -33,7 +32,10 @@ switch ($params[0]) {
     //  }
       //  break;
     case 'agregar':
+      $categoryController->showHome();
        $adminController->insertItemBd();
        $adminController->insertcategoryBd();
+       
+       $adminController->deleteItem();
         break;
 }

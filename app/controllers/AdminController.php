@@ -24,7 +24,9 @@
      $this->adminModel->insertNewItem($logo,$nombre,$fecha,$descripcion,$valorizacion,$peso,$precio,$genero_fk);
     }
   } 
-
+  function deleteItem(){
+    $this->adminView->insetView();
+  }
   function insertcategoryBd(){
     $this->adminView->insertView();
     if(isset($_POST['input_nombreCat'],$_POST['input_descripcionCat'])){

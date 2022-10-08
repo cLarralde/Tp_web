@@ -27,14 +27,10 @@
             <ul>
               <li><a href="inicio">Inicio</a></li>
               <li><a href="categorias">Categoria</a>
-                <ul>
-                <li><a href="categorias/accion" name>Accion</a></li>
-                <li><a href="categorias/supervivencia">Supervivencia</a></li>
-                <li><a href="categorias/estrategia">Estrategia</a></li>
-                <li><a href="categorias/carreras">Carreras</a></li>
-                {* {foreach}
-                       <li><a href="categorias/{categoria->nombre}" name={categoria->id}>{categoria->nombre}</a></li>
-                {/foreach} *}
+               <ul>
+                    {foreach from=$categorias item=categoria}
+                       <li><a href="categorias/{$categoria->nombre}" >{$categoria->nombre}</a></li>
+                    {/foreach} 
                 </ul>
               </li>
               <li><a href="colaboradores">Colaboradores</a></li>
