@@ -67,14 +67,14 @@ nav > ul >li > a:hover{
 }
 footer {
     color: white;
-    background-color: rgb(239, 148, 21);
+    background-color: #CA3E47;
     padding: 10px 20px;
   
   }
   .footerA {
     
     text-align: center;
-    background-color: rgb(0, 0, 0);
+    background-color: #CA3E47;
   }
   .footerA .grupo-1 {
   
@@ -109,7 +109,7 @@ footer {
   }
   
   .footerA .grupo-2 {
-    background-color: #000000;
+    background-color: #CA3E47;
     padding: 15px 10px;
     text-align: center;
     color: #ffffff;
