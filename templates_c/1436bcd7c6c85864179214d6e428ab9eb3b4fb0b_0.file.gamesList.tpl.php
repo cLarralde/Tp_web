@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-07 23:20:12
+/* Smarty version 4.2.1, created on 2022-10-08 15:01:17
   from 'C:\xampp\htdocs\Trabajo_especial\templates\gamesList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6340980cc6deb1_17428701',
+  'unifunc' => 'content_6341749dbc9623_57721612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1436bcd7c6c85864179214d6e428ab9eb3b4fb0b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\gamesList.tpl',
-      1 => 1665177610,
+      1 => 1665232278,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6340980cc6deb1_17428701 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6341749dbc9623_57721612 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?> <body>
+?>
 <ul class="list_games">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['games']->value, 'game');

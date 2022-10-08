@@ -27,12 +27,13 @@ switch ($params[0]) {
         // $gameController->showCategoriesItems();
         // $categoryController->showHome();
         break;
-    case 'categorias':
-      if(isset($params[1])){
-         $id_cat=$_GET['']
-      }
-        break;
+   // case 'categorias':
+     // if(isset($params[1])){
+        // $id_cat=$_GET['']
+    //  }
+      //  break;
     case 'agregar':
        $adminController->insertItemBd();
+       $adminController->insertcategoryBd();
         break;
 }

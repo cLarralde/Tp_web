@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-06 01:01:08
+/* Smarty version 4.2.1, created on 2022-10-08 15:01:17
   from 'C:\xampp\htdocs\Trabajo_especial\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633e0cb434c6e5_38204837',
+  'unifunc' => 'content_6341749dc3dad4_93377022',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1d5cf0b11308c928aef5b1c1602a93c1570b0c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\header.tpl',
-      1 => 1665009633,
+      1 => 1665232214,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633e0cb434c6e5_38204837 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6341749dc3dad4_93377022 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +28,9 @@ function content_633e0cb434c6e5_38204837 (Smarty_Internal_Template $_smarty_tpl)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php echo '<script'; ?>
+ src="https://kit.fontawesome.com/ef4bda3763.js" crossorigin="anonymous"><?php echo '</script'; ?>
+>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </title>
@@ -35,25 +38,30 @@ function content_633e0cb434c6e5_38204837 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
   <header>
-    <div class="header_superior">
+   
       <div class="logo">
-        <img src="https://i.pinimg.com/originals/c6/25/90/c62590c1756680060e7c38011cd704b5.jpg">
+        <img src="https://tierragamer.com/wp-content/uploads/2022/05/Giga-Chad-Gamer.jpg">
       </div>
       <div class="container__menu">
         <div class="menu">
-          <nav>
+        <div class="header_superior">
+        <input type="checkbox" id="check__menu">
+        <label id="#label__check" for="check__menu">
+           <i class="fas fa-bars icon__menu"></i>
+        </label>  
+        <nav>
             <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Categoria</a>
+              <li><a href="inicio">Inicio</a></li>
+              <li><a href="categorias">Categoria</a>
                 <ul>
-                  <li>Accion</li>
-                  <li>Supervivencia</li>
-                  <li>Estrategia</li>
-                  <li>Carreras</li>
-                </ul>
+                <li><a href="categorias/accion" name>Accion</a></li>
+                <li><a href="categorias/supervivencia">Supervivencia</a></li>
+                <li><a href="categorias/estrategia">Estrategia</a></li>
+                <li><a href="categorias/carreras">Carreras</a></li>
+                                </ul>
               </li>
-              <li><a href="#">Colaboradores</a></li>
-              <li><a href="#">Iniciar Sesion</a></li>
+              <li><a href="colaboradores">Colaboradores</a></li>
+              <li><a href="agregar">Iniciar Sesion</a></li>
             </ul>
           </nav>
         </div>
@@ -61,5 +69,5 @@ function content_633e0cb434c6e5_38204837 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </header>
 
-  <body><?php }
+ <?php }
 }

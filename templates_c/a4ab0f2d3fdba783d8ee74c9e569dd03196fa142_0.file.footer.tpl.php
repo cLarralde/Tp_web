@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-06 01:01:08
+/* Smarty version 4.2.1, created on 2022-10-08 15:01:17
   from 'C:\xampp\htdocs\Trabajo_especial\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633e0cb43c83d9_09151648',
+  'unifunc' => 'content_6341749dc73495_31725612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a4ab0f2d3fdba783d8ee74c9e569dd03196fa142' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\footer.tpl',
-      1 => 1665009633,
+      1 => 1665232214,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633e0cb43c83d9_09151648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6341749dc73495_31725612 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <footer class="footerA">
         <div class="grupo-1">
           <div class="box">
@@ -46,7 +46,7 @@ function content_633e0cb43c83d9_09151648 (Smarty_Internal_Template $_smarty_tpl)
                 class="fa fa-twitter"
               ></a>
               <a
-                href="https://www.youtube.com/watch?v=1Zjm0uh8oeA"
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 target="_blank"
                 class="fa fa-youtube"
               ></a>

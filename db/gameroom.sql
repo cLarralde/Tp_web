@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2022 a las 23:35:06
+-- Tiempo de generación: 08-10-2022 a las 15:10:40
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -31,18 +31,19 @@ USE `gameroom`;
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombre` varchar(20) NOT NULL,
+  `descripcionCat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`id`, `nombre`) VALUES
-(1, 'accion'),
-(2, 'supervivencia'),
-(3, 'estrategia'),
-(4, 'carreras');
+INSERT INTO `categorias` (`id`, `nombre`, `descripcionCat`) VALUES
+(1, 'Accion', 'Los videojuegos de acción son aquellos en el que el jugador debe usar su velocidad, destreza y tiempo de reacción'),
+(2, 'Supervivencia', 'Los videojuegos de supervivencia son aquellos ambientados en un ambiente hostil, intenso y de mundo abierto, donde los jugadores generalmente comienzan con equipos mínimos y se les exige que recolecten recursos, herramientas de artesanía, armas y refugio, y sobrevivan el mayor tiempo posible. '),
+(3, 'Estrategia', 'Los videojuegos de estrategia son videojuegos que requieren que el jugador ponga en práctica sus habilidades de planeamiento y pensamiento para conseguir la victoria. '),
+(4, 'Carreras', 'Los videojuegos de carreras son aquellos que se basan en las competencias de velocidad entre vehículos o personajes. ');
 
 -- --------------------------------------------------------
 
