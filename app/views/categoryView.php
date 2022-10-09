@@ -18,4 +18,10 @@ class CategoryView{
         $smarty->assign('categorias',$categorias);
         $smarty->display('templates/header.tpl');
     }  
+    function showAllCategories($categorias){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('categorias',$categorias);
+        $smarty->display('templates/categoriesList.tpl');
+    }
 }

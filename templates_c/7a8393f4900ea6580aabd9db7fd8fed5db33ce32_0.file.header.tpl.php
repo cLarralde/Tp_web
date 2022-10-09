@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-10 01:41:58
-  from 'C:\xampp\htdocs\Trabajo_especial\templates\header.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-09 04:50:11
+  from 'C:\xampp\htdocs\Tp_web_test\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63435c46a31921_90724403',
+  'unifunc' => 'content_634236e3890d61_29504117',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c1d5cf0b11308c928aef5b1c1602a93c1570b0c7' => 
+    '7a8393f4900ea6580aabd9db7fd8fed5db33ce32' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\header.tpl',
-      1 => 1665358738,
+      0 => 'C:\\xampp\\htdocs\\Tp_web_test\\templates\\header.tpl',
+      1 => 1665274803,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63435c46a31921_90724403 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634236e3890d61_29504117 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +61,7 @@ $_smarty_tpl->tpl_vars['categoria']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 ?>
-                       <li><a href="categorias/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+                       <li><a href="categorias/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
 " ><?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
 </a></li>
                     <?php

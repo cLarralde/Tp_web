@@ -7,19 +7,17 @@ class GameController {
     private $gameModel;
     private $gameView;
     private $categoryModel;
-    private $categoryView;
     public function __construct()
     {
         $this->gameModel=new GameModel();
         $this->gameView=new GameView();
         $this->categoryModel= new CategoryModel();
-        $this->categoryView= new CategoryView();
     }
     function showHome(){ //esta funcion se llama en el router y trayendo la consulta y luego mostrandola en la view
-      $categories=$this->categoryModel->getCategories();
-      $this->categoryView->navbar($categories);
+      $categories=$this->categoryModel->getCategories();// TIENE QUE ESTAR PARA EL NAVBAR DE ACA SALE LAS LISTAS DE CATEGORIAS Y SE LO MANDO COMO PARAMETRO
       $items = $this->gameModel->getItems(); //traigo todos los juegos y los guardo en $items
-      $this->gameView->showViewItems($items);//mando el arreglo asociativo hacia View
+      $this->gameView->showViewItems($items,$categories);// TIENE QUE ESTAR PARA EL NAVBAR
+    
     }
   
     function showCategoriesItems($id_cat) {

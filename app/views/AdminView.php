@@ -8,10 +8,12 @@ require_once "./libs/smarty/Smarty.class.php";
     function __construct(){
         $this->title = "Gameroom";
     }
-    function insertView(){
+    function adminView($items,$categorias){
        $smarty = new Smarty();
        $smarty->assign('titulo',$this->title);
-       $smarty->display('templates/consultas.tpl');
+       $smarty->assign('games',$items);
+       $smarty->assign('categorias',$categorias);
+       $smarty->display('templates/adminView.tpl');
 
     }
  }

@@ -17,7 +17,7 @@
        $this->userModel->newUser($newEmail, $newPassword);
       }
  }
- function login(){
+ function login($user){
    //$this->usersView->??();
    if(isset($_POST['input_email'],$_POST['input_password'])){
     $email=$_POST['input_email'];

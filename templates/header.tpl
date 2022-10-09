@@ -29,12 +29,12 @@
               <li><a href="categorias">Categoria</a>
                <ul>
                     {foreach from=$categorias item=categoria}
-                       <li><a href="categorias/{$categoria->nombre}" >{$categoria->nombre}</a></li>
+                       <li><a href="categorias/{$categoria->id}" >{$categoria->nombre}</a></li>
                     {/foreach} 
                 </ul>
               </li>
               <li><a href="colaboradores">Colaboradores</a></li>
-              <li><a href="agregar">Iniciar Sesion</a></li>
+              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
             </ul>
           </nav>
         </div>
