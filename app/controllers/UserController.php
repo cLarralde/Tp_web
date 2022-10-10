@@ -18,7 +18,7 @@
       }
  }
  function login($user){
-   //$this->usersView->??();
+   $this->userView->showLogin();
    if(isset($_POST['input_email'],$_POST['input_password'])){
     $email=$_POST['input_email'];
     $password=$_POST['input_password'];

@@ -11,17 +11,19 @@ class CategoryView{
 
     function __construct(){
         $this->title = "Gameroom";
+        $this->categoryModel= new CategoryModel();
     }
-    function navbar($categorias){
+    function navbar(){
+        $categories=$this->categoryModel->getCategories();
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
-        $smarty->assign('categorias',$categorias);
+        $smarty->assign('categorias',$categories);
         $smarty->display('templates/header.tpl');
     }  
-    function showAllCategories($categorias){
+    function showAllCategories( $categories){
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
-        $smarty->assign('categorias',$categorias);
+        $smarty->assign('categories',$categories);
         $smarty->display('templates/categoriesList.tpl');
     }
 }

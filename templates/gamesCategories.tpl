@@ -4,7 +4,7 @@
         {foreach from=$games_cat item=game}
           <li>{$game->nombre}</li>
           <li>{$game->fecha_lanzamiento}</li>
-          <li>{$game->pato}</li>
+          <li>{$game->categoria}</li>
         {/foreach}
     </ul>
   </div>

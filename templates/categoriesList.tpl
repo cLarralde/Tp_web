@@ -1,8 +1,10 @@
 {include file="header.tpl"}
 <div class="container">
-{foreach from=$categorias item=categoria}
-    <li><a href="categorias/{$categoria->id}" >{$categoria->nombre}</a>
-    Descripción: {$categoria->descripcionCat}</li>
+{foreach from=$categories item=categoria}
+    <ul>
+        <li><a>Nombre De Categoria{$categoria->nombre}</a></li>
+        <li><a>Descripción:{$categoria->descripcionCat}</a></li>
+    </ul>
  {/foreach} 
 </div>
 {include file="footer.tpl"}
