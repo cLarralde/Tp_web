@@ -1,10 +1,13 @@
 {include file="header.tpl"}
 <div class="container">
-{foreach from=$categories item=categoria}
     <ul>
-        <li><a>Nombre De Categoria{$categoria->nombre}</a></li>
-        <li><a>Descripción:{$categoria->descripcionCat}</a></li>
+        {foreach from=$categories item=categoria}
+            <div class="gameCards">
+                <li>Nombre De Categoria:<a href="categorias/{$categoria->id}">{$categoria->nombre}</a></li>
+                <li>Descripción: {$categoria->descripcionCat}</li>
+
+            </div>
+        {/foreach}
     </ul>
- {/foreach} 
 </div>
 {include file="footer.tpl"}

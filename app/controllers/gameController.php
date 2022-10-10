@@ -29,6 +29,7 @@ class GameController {
           if ($item->fk_id_categoria == $categoria->id && $item->fk_id_categoria == $id_cat) {
             $item->pato = $categoria->nombre; // se crea una nuevo arreglo asociativo
             $juegos = new stdClass();
+            $juegos->logo = $item->logo;
             $juegos->nombre = $item->nombre;
             $juegos->fecha_lanzamiento = $item->fecha_lanzamiento;
             $juegos->categoria = $categoria->nombre;
