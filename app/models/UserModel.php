@@ -13,7 +13,7 @@ class UserModel{
     function login ($email){
     $query= $this->db->prepare('SELECT * FROM usuarios WHERE email = ?');
     $query->execute([$email]);
-    $user = $query->fetchAll(PDO::FETCH_OBJ);
+    $user = $query->fetch(PDO::FETCH_OBJ);
     return $user;
     }
 }

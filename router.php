@@ -21,9 +21,8 @@ $gameController = new gameController();
 $categoryController = new categoryController();
 $adminController = new AdminController();
 $userController = new UserController();
-// determina que camino seguir según la acción
+// Determina Que Camino Seguir Según La Acción
 switch ($params[0]) {
-    //CUALQUIER COSA MANDAME MENSAJE NOSEA BOLUDA NO TE QUEDES CON LA DUDA 👍
   case 'inicio':
     $gameController->showHome();
     break;
@@ -40,10 +39,26 @@ switch ($params[0]) {
       $gameController->showItem($params[1]);
     }
     break;
-    //inicio de sesion 😊  PESTAÑA DE ADMINISTRADOR      
-  case 'iniciarsesion':
-    // $userController->login($id); //comenta esto y descomenta lo otro para ver la pestaña de admin
-    $adminController->insertcategoryBd(); //descomenta esto para ver la pestaña de admin
+    //PAGINA DE INICIO DE SESION Y REGISTRO 🐯/////////////////////////
+  case 'iniciarsesion': //PAGINA DE INICIO DE SESION
+    if(!isset($params[1])){ 
+     $userController->login();
+    }
+    else if (isset($params[1])=='verificarLogin') {
+     $userController->login();
+    }
+    break;
+  case 'registrarse': //REGISTRARSE PAGINA
+    if(!isset($params[1])){
+    $userController->register();
+    }
+    else if(isset($params[1])=='verificarRegistro'){
+    $userController->register();
+    }
+    break;
+    //MODO ADMIN APARTIR DE ACA 😎////////////////////////////////////////
+  case 'admin':
+    $adminController->insertcategoryBd(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
     break;
   case 'agregarCat':
     $adminController->insertcategoryBd();
@@ -54,15 +69,16 @@ switch ($params[0]) {
   case 'eliminarItem':
     $adminController->deleteItem();
     break;
-    //registrarse para que el usuario se registre
   case 'editarItem':
-     $adminController->editarItem();
-  break;
+    $adminController->editarItem();
+    break;
   case 'editarCat':
-   $adminController->editCat();
-  break;
+    $adminController->editCat();
+    break;
   case 'eliminarCat':
     $adminController->deleteCat();
-  break;
-
+    break;
+  default:
+    echo ('404 Page not found');
+    break;
 }
