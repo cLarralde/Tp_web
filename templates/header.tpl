@@ -33,8 +33,7 @@
                   <li><a href="categorias/{$categoria->id}">{$categoria->nombre}</a></li>
                   {/foreach}
                 </ul>
-              </li>
-              <li><a href="colaboradores">Colaboradores</a></li>
+        
               <li><a href="iniciarsesion">Iniciar Sesion</a></li>
               <li><a href="registrarse">Registrarse</a></li>
             </ul>

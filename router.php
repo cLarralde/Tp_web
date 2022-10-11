@@ -42,8 +42,8 @@ switch ($params[0]) {
     break;
     //inicio de sesion 😊  PESTAÑA DE ADMINISTRADOR      
   case 'iniciarsesion':
-    $userController->login($id); //comenta esto y descomenta lo otro para ver la pestaña de admin
-    // $adminController->insertcategoryBd(); descomenta esto para ver la pestaña de admin
+    // $userController->login($id); //comenta esto y descomenta lo otro para ver la pestaña de admin
+    $adminController->insertcategoryBd(); //descomenta esto para ver la pestaña de admin
     break;
   case 'agregarCat':
     $adminController->insertcategoryBd();
@@ -55,7 +55,14 @@ switch ($params[0]) {
     $adminController->deleteItem();
     break;
     //registrarse para que el usuario se registre
-  case 'registrarse':
+  case 'editarItem':
+     $adminController->editarItem();
+  break;
+  case 'editarCat':
+   $adminController->editCat();
+  break;
+  case 'eliminarCat':
+    $adminController->deleteCat();
+  break;
 
-    break;
 }

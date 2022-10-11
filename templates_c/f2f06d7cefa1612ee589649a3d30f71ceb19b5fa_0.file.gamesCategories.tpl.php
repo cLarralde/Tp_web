@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 00:26:54
-  from 'C:\xampp\htdocs\Trabajo_especial\templates\gamesCategories.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-11 00:47:21
+  from 'C:\xampp\htdocs\Tp_web_test\templates\gamesCategories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63449c2ea8b300_63318953',
+  'unifunc' => 'content_6344a0f9558e55_33606272',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1a2360c337e9820a6e67b72a9dd779ec0843a2dd' => 
+    'f2f06d7cefa1612ee589649a3d30f71ceb19b5fa' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\gamesCategories.tpl',
-      1 => 1665440810,
+      0 => 'C:\\xampp\\htdocs\\Tp_web_test\\templates\\gamesCategories.tpl',
+      1 => 1665441793,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_63449c2ea8b300_63318953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6344a0f9558e55_33606272 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
   <div class="container">

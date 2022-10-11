@@ -16,9 +16,9 @@
         $query->execute([$items_id]);
     }
 
-    function editItems($id,$logo,$nombre,$fecha_lazamiento,$descripcion,$valorizacion,$peso,$precio){
-        $query = $this->db->prepare("UPDATE `juegos` SET logo=? ,nombre=? ,fecha_lanzamiento=? ,descripcion=? ,valorizacion=? ,peso=? ,precio=? WHERE id=?");
-        $query->execute([$id,$logo,$nombre,$fecha_lazamiento,$descripcion,$valorizacion,$peso,$precio]);
+    function editItems($id,$logo,$nombre,$fecha_lazamiento,$descripcion,$valorizacion,$peso,$precio,$fk_id_categoria){
+        $query = $this->db->prepare("UPDATE `juegos` SET logo=? ,nombre=? ,fecha_lanzamiento=? ,descripcion=? ,valorizacion=? ,peso=? ,precio=?,fk_id_categoria=? WHERE id=?");
+        $query->execute([$logo,$nombre,$fecha_lazamiento,$descripcion,$valorizacion,$peso,$precio,$fk_id_categoria,$id]);
     }
 
     function insertNewCategory($nombre_categoria,$descripcion_categoria){
@@ -31,8 +31,8 @@
         $query->execute([$category_id]);
     }
 
-    function editCategory($category_id,$nombre_categoria,$descripcion_categoria){
+    function editCategory($catId,$catName,$catDescription){
         $query = $this->db->prepare("UPDATE `categorias` SET nombre=? , descripcionCat=? WHERE id=?");
-        $query->execute([$nombre_categoria,$descripcion_categoria,$category_id]);
+        $query->execute([$catName,$catDescription,$catId]);
     }
  }
