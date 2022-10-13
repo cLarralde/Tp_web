@@ -46,27 +46,17 @@ class AdminController
       $this->userView->adminView($items,$categories,$last_id);
     }
   }
-  function insertcategoryBd()
-  { // INSERTA UNA CATEGORIA ALA BASE DE DATOS
-    $categories=$this->categoryModel->getCategories();
-    $items=$this->gameModel->getItems();
-    if (!empty($_POST['input_nombreCat'])&&!empty($_POST['input_descripcionCat'])) {
-      $nombre_categoria = $_POST['input_nombreCat'];
-      $descripcion_categoria = $_POST['input_descripcionCat'];
-      $last_id=$this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
-      $this->userView->adminView($items,$categories,$last_id); } 
-    }
-    function deleteItem()
-    { //ELIMINA UN ITEM DE LA BASE DE DATOS
+  function deleteItem()
+  { //ELIMINA UN ITEM DE LA BASE DE DATOS
     $categories=$this->categoryModel->getCategories();
     $items=$this->gameModel->getItems();
     if (!empty($_POST['item_id'])) {
       $item_id = $_POST['item_id'];
-      $last_id=$this->gameModel->deleteItems($item_id);
+      $last_id=$this->gameModel->deleteItem($item_id);
       $this->userView->adminView($items,$categories,$last_id);
     }
   }
-  function editarItem()
+  function editItem()
   {//EDITA UN ITEM
     $categories=$this->categoryModel->getCategories();
     $items=$this->gameModel->getItems();
@@ -80,10 +70,20 @@ class AdminController
       $peso = $_POST['input_peso_edit'];
       $precio = $_POST['input_precio_edit'];
       $genero_fk = $_POST['input_item_fk_edit'];
-      $last_id=$this->gameModel->editItems($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
+      $last_id=$this->gameModel->editItem($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->userView->adminView($items,$categories,$last_id);
     }
   }
+  function insertCategoryBd()
+  { // INSERTA UNA CATEGORIA ALA BASE DE DATOS
+    $categories=$this->categoryModel->getCategories();
+    $items=$this->gameModel->getItems();
+    if (!empty($_POST['input_nombreCat'])&&!empty($_POST['input_descripcionCat'])) {
+      $nombre_categoria = $_POST['input_nombreCat'];
+      $descripcion_categoria = $_POST['input_descripcionCat'];
+      $last_id=$this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
+      $this->userView->adminView($items,$categories,$last_id); } 
+    }
   function deleteCat()
   {//ELIMINA UNA CATEGORIA
     $categories=$this->categoryModel->getCategories();

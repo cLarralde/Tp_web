@@ -7,10 +7,24 @@ ul li{
 }
 .gameCards{
 text-align: center;
-border: 0.5rem solid #CA3E47;
-margin: 0.5rem;
-  background-color: #414141;
+border: 0.2rem solid #CA3E47;
+margin: 0.2rem;
+  background-color: #333333;
   color:#fff
+}
+.GameAdmin{
+  border: #414141 0.5rem solid;
+  font-weight: bolder;
+  color: #ffffff;
+  background-color: #414141;
+  text-align: left;
+}
+.categoryAdmin{
+  border: #414141 0.5rem solid;
+  font-weight: bolder;
+  color: #ffffff;
+  background-color: #414141;
+  text-align: right;
 }
 *{
   margin: 0;

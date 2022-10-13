@@ -63,7 +63,7 @@ switch ($params[0]) {
     $adminController->showForms(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
     break;
   case 'agregarCat':
-    $adminController->insertcategoryBd();
+    $adminController->insertCategoryBd();
     break;
   case 'agregarItem':
     $adminController->insertItemBd();
@@ -72,7 +72,7 @@ switch ($params[0]) {
     $adminController->deleteItem();
     break;
   case 'editarItem':
-    $adminController->editarItem();
+    $adminController->editItem();
     break;
   case 'editarCat':
     $adminController->editCat();
