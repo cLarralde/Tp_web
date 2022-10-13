@@ -33,8 +33,12 @@
                   <li><a href="categorias/{$categoria->id}">{$categoria->nombre}</a></li>
                   {/foreach}
                 </ul>
-        
-              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+               {* {if $admin}
+              <li><a href="admin">Modo admin</a></li>
+              <li><a href="cerrarsesion">Cerrar Sesion</a></li>
+              {else} *}
+                <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+              {* {/if} *}
               <li><a href="registrarse">Registrarse</a></li>
             </ul>
           </nav>

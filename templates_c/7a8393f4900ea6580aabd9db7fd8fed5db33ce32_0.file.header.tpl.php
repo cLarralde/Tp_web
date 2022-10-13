@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 04:00:42
+/* Smarty version 4.2.1, created on 2022-10-13 23:29:42
   from 'C:\xampp\htdocs\Tp_web_test\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6347714a188bb9_37276709',
+  'unifunc' => 'content_6348834666a4d0_57342750',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a8393f4900ea6580aabd9db7fd8fed5db33ce32' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tp_web_test\\templates\\header.tpl',
-      1 => 1665528627,
+      1 => 1665696576,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6347714a188bb9_37276709 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6348834666a4d0_57342750 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -69,9 +69,8 @@ $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </ul>
-        
-              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
-              <li><a href="registrarse">Registrarse</a></li>
+                               <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+                            <li><a href="registrarse">Registrarse</a></li>
             </ul>
           </nav>
         </div>

@@ -11,7 +11,7 @@
                 <input class="form-control" id="password" name="input_password" type="password"
                     placeholder="Ingrese la contraseña">
             </div>
-            <button>Iniciar sesión</button>
+            <button type="submit">Iniciar sesión</button>
         </form>
     </div>
 </div>

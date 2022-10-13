@@ -19,6 +19,13 @@ class UserController
     $this->gameModel= new GameModel();
     $this->categoryModel= new CategoryModel();
   }
+  function showForms(){
+    $this->verifylogin();
+    header("Location:".ADMIN);
+    $categories=$this->categoryModel->getCategories();
+    $items=$this->gameModel->getItems();
+    $this->userView->adminView($items,$categories);
+  }
   function register()
   { //FORMULARIO DE REGISTRO
     $categories=$this->categoryModel->getCategories();
@@ -31,30 +38,39 @@ class UserController
   }
   function login()
   { //FORMULARIO DE INICIO DE SESION
+    
     $categories=$this->categoryModel->getCategories();
     $this->userView->showLogin($categories);
     if (!empty($_POST['input_email']) && !empty($_POST['input_password'])) {
       echo "llegue aqui";
-      die();
       $email = $_POST['input_email'];
       $password = $_POST['input_password'];
       $user = $this->userModel->login($email);
-      var_dump($user);
+      var_dump("entre aca");
       if ($user && password_verify($password, ($user->password))) {
         session_start();
         $_SESSION["ID_USER"] = $user->id;
         $_SESSION["username"] = $user->email;
+        // var_dump($_SESSION);
         // header('location:');
-        echo "sesion iniciada";
       } else {
         $this->userView->showLogin("Login incorrecto");
         echo "no entro";
       }
-    }
+    }}
     // function logout(){
     //   session_start();
     //   session_destroy();
     //   header('Location'.LOGIN);
     // }
+     private function verifylogin()
+  {
+    session_start();
+    if(!isset($_SESSION['ID_USER'])){
+      var_dump($_SESSION);
+      header('Location:'.LOGIN);
+      die();
+    }
   }
-}
+  }
+

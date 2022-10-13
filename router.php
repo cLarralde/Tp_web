@@ -1,13 +1,13 @@
 <?php
 require_once './app/controllers/categoryController.php';
 require_once './app/controllers/gameController.php';
-require_once './app/controllers/AdminController.php';
 require_once './app/controllers/UserController.php';
 
 // defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define('LOGIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/iniciarsesion');
 define('LOGOUT', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/logout');
+define('ADMIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/admin');
 // lee la acción
 if (!empty($_GET['action'])) {
   $action = $_GET['action'];
@@ -20,7 +20,6 @@ $params = explode('/', $action);
 
 $gameController = new gameController();
 $categoryController = new categoryController();
-$adminController = new AdminController();
 $userController = new UserController();
 // Determina Que Camino Seguir Según La Acción
 switch ($params[0]) {
@@ -47,7 +46,8 @@ switch ($params[0]) {
      $userController->login();
     }
     else if ($params[1]=='verificarLogin') {
-     $userController->login();
+      $userController->login();
+      $userController->showForms();
     }
     break;
   case 'registrarse': //REGISTRARSE PAGINA
@@ -55,31 +55,34 @@ switch ($params[0]) {
     $userController->register();
     }
     else if($params[1]=='verificarRegistro'){
-    $userController->register();
+      $userController->register();
     }
     break;
     //MODO ADMIN APARTIR DE ACA 😃////////////////////////////////////////
   case 'admin':
-    $adminController->showForms(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
+    $userController->showForms(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
     break;
   case 'agregarCat':
-    $adminController->insertcategoryBd();
+    $categoryController->insertcategoryBd();
     break;
   case 'agregarItem':
-    $adminController->insertItemBd();
+    $gameController->insertItemBd();
     break;
   case 'eliminarItem':
-    $adminController->deleteItem();
+    $gameController->deleteItem();
     break;
   case 'editarItem':
-    $adminController->editarItem();
+    $gameController->editItem();
     break;
   case 'editarCat':
-    $adminController->editCat();
+    $categoryController->editCat();
     break;
   case 'eliminarCat':
-    $adminController->deleteCat();
+    $categoryController->deleteCat();
     break;
+  case 'cerrarsesion':
+
+  break;
   default:
     echo ('404 Page not found');
     break;
