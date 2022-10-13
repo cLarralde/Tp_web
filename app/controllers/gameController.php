@@ -74,7 +74,7 @@ class GameController
   $items=$this->gameModel->getItems();
   if (!empty($_POST['item_id'])) {
     $item_id = $_POST['item_id'];
-    $last_id=$this->gameModel->deleteItems($item_id);
+    $last_id=$this->gameModel->deleteItem($item_id);
     $this->userView->adminView($items,$categories,$last_id);
   }
 }
@@ -92,7 +92,7 @@ function editItem()
       $peso = $_POST['input_peso_edit'];
       $precio = $_POST['input_precio_edit'];
       $genero_fk = $_POST['input_item_fk_edit'];
-      $last_id=$this->gameModel->editItems($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
+      $last_id=$this->gameModel->editItem($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->userView->adminView($items,$categories,$last_id);
     }
   }

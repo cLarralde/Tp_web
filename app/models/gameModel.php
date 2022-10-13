@@ -28,15 +28,15 @@ class GameModel
         $query->execute([$logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $genero_fk]);
         return $this->db->lastInsertId();
     }
-    function deleteItems($items_id)
-    { //ELIMINA UN ITEM EN LA BASE DE BD
+    function deleteItem($items_id)
+    {//ELIMINA UN ITEM EN LA BASE DE BD
         $query = $this->db->prepare("DELETE FROM `juegos` WHERE id=?");
         $query->execute([$items_id]);
         return $this->db->lastInsertId();
     }
 
-    function editItems($id, $logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $fk_id_categoria)
-    { //EDITA UN ITEM EN LA BD
+    function editItem($id, $logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $fk_id_categoria)
+    {//EDITA UN ITEM EN LA BD
         $query = $this->db->prepare("UPDATE `juegos` SET logo=? ,nombre=? ,fecha_lanzamiento=? ,descripcion=? ,valorizacion=? ,peso=? ,precio=?,fk_id_categoria=? WHERE id=?");
         $query->execute([$logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $fk_id_categoria, $id]);
         return $this->db->lastInsertId();

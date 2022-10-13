@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-14 00:28:25
-  from 'C:\xampp\htdocs\Tp_web_test\templates\footer.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-13 19:19:22
+  from 'C:\xampp\htdocs\Trabajo_especial\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348910921bbf0_16928815',
+  'unifunc' => 'content_6348489a6df889_87838091',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'fd469db58ade4de33fc99f052765059668cf267e' => 
+    'a4ab0f2d3fdba783d8ee74c9e569dd03196fa142' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Tp_web_test\\templates\\footer.tpl',
-      1 => 1665699722,
+      0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\footer.tpl',
+      1 => 1665681560,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6348910921bbf0_16928815 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6348489a6df889_87838091 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <footer class="footerA">
         <div class="grupo-1">
           <div class="box">

@@ -2,7 +2,7 @@
         <div class="grupo-1">
           <div class="box">
             <h2>SOBRE NOSOTROS</h2>
-            <p>Grupo 4 Trabajo Practico Especial Tres Arroyos 14/05</p>
+            <p>Grupo 2 Trabajo Practico Especial, Tres Arroyos 15/10</p>
           </div>
           <div class="box">
             <h2>SIGUENOS</h2>
