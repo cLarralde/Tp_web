@@ -5,7 +5,7 @@ class UserModel{
     {
         $this->db= new PDO('mysql:host=localhost;'.'dbname=gameroom;charset=utf8', 'root', '');
     }
-    function newUser($newEmail, $newPassword){
+    function newUser($newEmail,$newPassword){
     $query=$this->db->prepare('INSERT INTO `usuarios` (`email`, `password`) VALUES (?,?)');
     $query->execute([$newEmail,$newPassword]);
     } 

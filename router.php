@@ -6,7 +6,8 @@ require_once './app/controllers/UserController.php';
 
 // defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-
+define('LOGIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/iniciarsesion');
+define('LOGOUT', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/logout');
 // lee la acción
 if (!empty($_GET['action'])) {
   $action = $_GET['action'];
@@ -39,12 +40,13 @@ switch ($params[0]) {
       $gameController->showItem($params[1]);
     }
     break;
-    //PAGINA DE INICIO DE SESION Y REGISTRO 🐯/////////////////////////
+    //PAGINA DE INICIO DE SESION Y REGISTRO ಠ_ಠ😁/////////////////////////
   case 'iniciarsesion': //PAGINA DE INICIO DE SESION
+   
     if(!isset($params[1])){ 
      $userController->login();
     }
-    else if (isset($params[1])=='verificarLogin') {
+    else if ($params[1]=='verificarLogin') {
      $userController->login();
     }
     break;
@@ -52,13 +54,13 @@ switch ($params[0]) {
     if(!isset($params[1])){
     $userController->register();
     }
-    else if(isset($params[1])=='verificarRegistro'){
+    else if($params[1]=='verificarRegistro'){
     $userController->register();
     }
     break;
-    //MODO ADMIN APARTIR DE ACA 😎////////////////////////////////////////
+    //MODO ADMIN APARTIR DE ACA 😃////////////////////////////////////////
   case 'admin':
-    $adminController->insertcategoryBd(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
+    $adminController->showForms(); //VISTA DE ADMIN DONDE ESTAN TODOS LOS FORMULARIOS 
     break;
   case 'agregarCat':
     $adminController->insertcategoryBd();

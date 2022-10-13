@@ -141,5 +141,8 @@
     <input class="form-control" name="descripcionCatEdit" type="text">
     <button type="submit">Editar Categoria</button>
   </form>
-  <div>
-    {include file="footer.tpl"}
+  {if $id}
+    <p class="consulta">la consulta fue exitosa</p>
+  {/if}
+</div>
+{include file="footer.tpl"}
