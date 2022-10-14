@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 23:29:42
+/* Smarty version 4.2.1, created on 2022-10-14 23:35:41
   from 'C:\xampp\htdocs\Tp_web_test\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348834666a4d0_57342750',
+  'unifunc' => 'content_6349d62db79748_46526780',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a8393f4900ea6580aabd9db7fd8fed5db33ce32' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tp_web_test\\templates\\header.tpl',
-      1 => 1665696576,
+      1 => 1665783338,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6348834666a4d0_57342750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349d62db79748_46526780 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
   <base href="<?php echo BASE_URL;?>
-" />
+"/>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,8 +69,17 @@ $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </ul>
-                               <li><a href="iniciarsesion">Iniciar Sesion</a></li>
-                            <li><a href="registrarse">Registrarse</a></li>
+                <?php if ((isset($_SESSION['username']))) {?>
+              <li><a href="admin">Modo admin</a></li>
+              <li><a href="cerrarsesion">Cerrar Sesion</a></li>
+              <?php } else { ?>
+              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+              <?php }?>
+              <li><a href="registrarse">Registrarse</a></li>
+              <?php if ((isset($_SESSION['username']))) {?>
+              <li><p><?php echo $_SESSION['username'];?>
+</p></li>
+              <?php }?>
             </ul>
           </nav>
         </div>

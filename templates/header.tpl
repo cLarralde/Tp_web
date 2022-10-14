@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <base href="{BASE_URL}" />
+  <base href="{BASE_URL}"/>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +33,16 @@
                   <li><a href="categorias/{$categoria->id}">{$categoria->nombre}</a></li>
                   {/foreach}
                 </ul>
-               {* {if $admin}
+                {if isset($smarty.session.username)}
               <li><a href="admin">Modo admin</a></li>
               <li><a href="cerrarsesion">Cerrar Sesion</a></li>
-              {else} *}
-                <li><a href="iniciarsesion">Iniciar Sesion</a></li>
-              {* {/if} *}
+              {else}
+              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+              {/if}
               <li><a href="registrarse">Registrarse</a></li>
+              {if isset($smarty.session.username)}
+              <li><p>{$smarty.session.username}</p></li>
+              {/if}
             </ul>
           </nav>
         </div>

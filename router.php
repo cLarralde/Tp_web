@@ -8,6 +8,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 define('LOGIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/iniciarsesion');
 define('LOGOUT', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/logout');
 define('ADMIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/admin');
+define('HOME', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
 // lee la acción
 if (!empty($_GET['action'])) {
   $action = $_GET['action'];
@@ -47,7 +48,6 @@ switch ($params[0]) {
     }
     else if ($params[1]=='verificarLogin') {
       $userController->login();
-      $userController->showForms();
     }
     break;
   case 'registrarse': //REGISTRARSE PAGINA
@@ -81,7 +81,7 @@ switch ($params[0]) {
     $categoryController->deleteCat();
     break;
   case 'cerrarsesion':
-
+    $userController->logout();
   break;
   default:
     echo ('404 Page not found');
