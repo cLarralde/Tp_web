@@ -1,7 +1,8 @@
 {include file="header.tpl"}
-<div class="registro">
+<div class="registro gameCards">
     <form action="registrarse/verificarRegistro" method="POST">
         <div class="form-group">
+            <h2> Registrarse </h2>
             <label for="newEmail">Email:</label>
             <input class="form-control" id="newEmail" name="input_newEmail" type="email" placeholder="Ingrese su email">
         </div>

@@ -1,16 +1,17 @@
 <?php
-class SecurityHelper{
+class SecurityHelper
+{
 
-    function __construct(){
+    function __construct()
+    {
     }
 
-    function checkLoggedIn(){
+    function checkLoggedIn()
+    {
         session_start();
-        if(!isset($_SESSION["username"])){
-            header("Location: ".BASE_URL.LOGIN);
+        if (!isset($_SESSION["username"])) {
+            header("Location: " . LOGIN);
+            die();
         }
-        
     }
-
 }
-

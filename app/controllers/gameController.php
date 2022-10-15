@@ -19,8 +19,10 @@ class GameController
     $this->categoryModel = new CategoryModel();
     $this->securityHelper = new SecurityHelper();
   }
+
   function showHome()
   { //MUESTRA TODOS LOS ITEMS/JUEGOS EN NUESTRA PAGINA DE INICIO
+    session_start();
     $categories = $this->categoryModel->getCategories(); // TIENE QUE ESTAR PARA EL NAVBAR DE ACA SALE LAS LISTAS DE CATEGORIAS Y SE LO MANDO COMO PARAMETRO
     $items = $this->gameModel->getItems(); //traigo todos los juegos y los guardo en $items
     $this->gameView->showViewItems($items, $categories); // TIENE QUE ESTAR PARA EL NAVBAR
@@ -29,13 +31,13 @@ class GameController
 
   function showCategoriesItems($id_cat)
   { //MUESTRA LAS ITEMS DE CIERTAS CATEGORIAS
+    session_start();
     $items = $this->gameModel->getItems();
     $categories = $this->categoryModel->getCategories();
     $arrayjuegos = [];
     foreach ($categories as $categorie) {
       foreach ($items as $item) {
         if ($item->fk_id_categoria == $categorie->id && $item->fk_id_categoria == $id_cat) {
-          $item->pato = $categorie->nombre; // se crea una nuevo arreglo asociativo
           $juegos = new stdClass();
           $juegos->logo = $item->logo;
           $juegos->nombre = $item->nombre;
@@ -47,17 +49,19 @@ class GameController
     }
     $this->gameView->showGamesCategory($arrayjuegos, $categories);
   }
+
   function showItem($idItem)
   { //MUESTRA UN SOLO ITEM POR ID
+    session_start();
     $item = $this->gameModel->getItem($idItem);
     $categories = $this->categoryModel->getCategories();
     $this->gameView->showViewItem($item, $categories);
   }
+
   function insertItemBd()
   { // INSERTA UN ITEM ALA BASE DE DATOS
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
     if (!empty($_POST['input_logo']) && !empty($_POST['input_nombre']) && !empty($_POST['input_fecha']) && !empty($_POST['input_description']) && !empty($_POST['input_valorizacion']) && !empty($_POST['input_peso']) && !empty($_POST['input_precio']) && !empty($_POST['input_item_fk_add'])) {
       $logo = $_POST['input_logo'];
       $nombre = $_POST['input_nombre'];
@@ -71,22 +75,22 @@ class GameController
       $this->userView->adminView($items, $categories, $last_id);
     }
   }
+
   function deleteItem()
   { //ELIMINA UN ITEM DE LA BASE DE DATOS
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
     if (!empty($_POST['item_id'])) {
       $item_id = $_POST['item_id'];
       $last_id = $this->gameModel->deleteItem($item_id);
       $this->userView->adminView($items, $categories, $last_id);
     }
   }
+  
   function editItem()
   { //EDITA UN ITEM
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
     if (!empty($_POST['item_id']) && !empty($_POST['input_logo_edit']) && !empty($_POST['input_nombre_edit']) && !empty($_POST['input_fecha_edit']) && !empty($_POST['input_description_edit']) && !empty($_POST['input_valorizacion_edit']) && !empty($_POST['input_peso_edit']) && !empty($_POST['input_precio_edit']) && !empty($_POST['input_item_fk_edit'])) {
       $id = $_POST['item_id'];
       $logo = $_POST['input_logo_edit'];

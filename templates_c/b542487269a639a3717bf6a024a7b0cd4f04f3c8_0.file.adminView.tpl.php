@@ -1,4 +1,30 @@
-{include file="header.tpl"}
+<?php
+/* Smarty version 4.2.1, created on 2022-10-15 04:17:57
+  from 'C:\xampp\htdocs\Trabajo_especial\templates\adminView.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_634a18550c7688_32034707',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'b542487269a639a3717bf6a024a7b0cd4f04f3c8' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\adminView.tpl',
+      1 => 1665799486,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:header.tpl' => 1,
+    'file:footer.tpl' => 1,
+  ),
+),false)) {
+function content_634a18550c7688_32034707 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 <div class="container">
   <div class="GameAdmin">
     <h2 class="GameAdmin">Sección Juegos</h2>
@@ -38,9 +64,18 @@
         <div class="form-group">
           <label for="input_item_fk_add">Genero FK</label>
           <select name="input_item_fk_add">
-            {foreach from=$categories item=categoria}
-              <option value="{$categoria->id}"> {$categoria->nombre} </option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
+ </option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </select>
         </div>
         <button type="submit">Agregar Juego</button>
@@ -51,9 +86,18 @@
       <h2> Editar un juego </h2>
       <form action="editarItem" method="POST">
         <select name="item_id">
-          {foreach from=$games item=game}
-            <option value="{$game->id}"> {$game->nombre} </option>
-          {/foreach}
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['games']->value, 'game');
+$_smarty_tpl->tpl_vars['game']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['game']->value) {
+$_smarty_tpl->tpl_vars['game']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['game']->value->nombre;?>
+ </option>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <div class="form-group">
           <label for="logo">Logo URL</label>
@@ -88,9 +132,18 @@
         </div>
         <div class="form-group">
           <select name="input_item_fk_edit">
-            {foreach from=$categories item=categoria}
-              <option value="{$categoria->id}"> {$categoria->nombre} </option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
+ </option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </select>
         </div>
         <button type="submit">Editar juego</button>
@@ -101,9 +154,18 @@
       <h2> Eliminar un juego </h2>
       <form action="eliminarItem" method="POST">
         <select name="item_id">
-          {foreach from=$games item=game}
-            <option value="{$game->id}"> {$game->nombre} </option>
-          {/foreach}
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['games']->value, 'game');
+$_smarty_tpl->tpl_vars['game']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['game']->value) {
+$_smarty_tpl->tpl_vars['game']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['game']->value->nombre;?>
+ </option>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <button type="submit">Eliminar juego</button>
       </form>
@@ -133,9 +195,18 @@
       <h2> Editar una categoría </h2>
       <form action="editarCat" method="post">
         <select name="cat_id_edit">
-          {foreach from=$categories item=categorie}
-            <option value="{$categorie->id}"> {$categorie->nombre} </option>
-          {/foreach}
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'categorie');
+$_smarty_tpl->tpl_vars['categorie']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categorie']->value) {
+$_smarty_tpl->tpl_vars['categorie']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categorie']->value->nombre;?>
+ </option>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <label for="catEdit_name">Nombre Categoria:</label>
         <input class="form-control" name="catEdit_name" type="text">
@@ -151,13 +222,24 @@
         dicha categoria.</p>
       <form action="eliminarCat" method="POST">
         <select name="cat_id">
-          {foreach from=$categories item=categorie}
-            <option value="{$categorie->id}"> {$categorie->nombre} </option>
-          {/foreach}
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'categorie');
+$_smarty_tpl->tpl_vars['categorie']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categorie']->value) {
+$_smarty_tpl->tpl_vars['categorie']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['categorie']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categorie']->value->nombre;?>
+ </option>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <button type="submit">Eliminar Categoria</button>
       </form>
     </div>
   </div>
 </div>
-{include file="footer.tpl"}
+<?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}
