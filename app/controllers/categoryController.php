@@ -35,6 +35,9 @@ class CategoryController
       $descripcion_categoria = $_POST['input_descripcionCat'];
       $mensaje = $this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
       $this->userView->showResult($categories, $mensaje);
+    }else{
+      $mensaje = "error";
+      $this->userView->showResult($categories, $mensaje);
     }
   }
 
@@ -45,6 +48,9 @@ class CategoryController
     if (!empty($_POST['cat_id'])) {
       $cat_id = $_POST['cat_id'];
       $mensaje = $this->categoryModel->deleteCategory($cat_id);
+      $this->userView->showResult($categories, $mensaje);
+    }else{
+      $mensaje = "error";
       $this->userView->showResult($categories, $mensaje);
     }
   }
@@ -58,6 +64,9 @@ class CategoryController
       $catName = $_POST['catEdit_name'];
       $catDescription = $_POST['descripcionCatEdit'];
       $mensaje = $this->categoryModel->editCategory($id, $catName, $catDescription);
+      $this->userView->showResult($categories, $mensaje);
+    }else{
+      $mensaje = "error";
       $this->userView->showResult($categories, $mensaje);
     }
   }
