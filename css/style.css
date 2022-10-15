@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 a {
-  color: rgb(255, 255, 255);
+  color: rgb(234, 91, 91);
+  font-size: larger;
+  font-style: italic;
 }
 .consulta{
   color: #288f26;
@@ -96,6 +98,7 @@ nav ul li {
 }
 
 nav>ul>li>a {
+  font-style: normal;
   width: 100%;
   height: 100%;
   display: flex;

@@ -17,7 +17,8 @@ class CategoryModel
     { //INSERTA UNA CATEGORIA EN LA BD
         $query = $this->db->prepare('INSERT INTO `categorias` (`nombre`, `descripcionCat`) VALUES (?,?)');
         $query->execute([$nombre_categoria, $descripcion_categoria]);
-        return $this->db->lastInsertId();
+        $mensaje = "Se agrego correctamente una nueva categoria";
+        return $mensaje;
     }
 
     function deleteCategory($category_id)
@@ -25,9 +26,10 @@ class CategoryModel
         try {
             $query = $this->db->prepare("DELETE FROM `categorias` WHERE id=?");
             $query->execute([$category_id]);
-            return $this->db->lastInsertId();
+            $mensaje = "Se eliminó correctamente la categoria";
+            return $mensaje;
         } catch (\Throwable $e) {
-            return "error";
+            return "error, no se pudo eliminar la categoria elegida";
         }
         
     }
@@ -36,6 +38,7 @@ class CategoryModel
     { //EDITA UN ITEM DE LA BD
         $query = $this->db->prepare("UPDATE `categorias` SET nombre=? , descripcionCat=? WHERE id=?");
         $query->execute([$catName, $catDescription, $catId]);
-        return $this->db->lastInsertId();
+        $mensaje="Se edito correctamente la categoria seleccionada";
+        return $mensaje;
     }
 }

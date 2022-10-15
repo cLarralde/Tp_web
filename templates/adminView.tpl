@@ -1,12 +1,9 @@
 {include file="header.tpl"}
 <div class="container">
-  {if $id}
-    <p class="consulta">{$id}</p>
-  {/if}
   <div class="GameAdmin">
     <h2 class="GameAdmin">Sección Juegos</h2>
     <div class="gameCards">
-    <h2> Agregar un juego </h2>
+      <h2> Agregar un juego </h2>
       <form action="agregarItem" method="POST">
         <div class="form-group">
           <label for="logo">Logo URL</label>
@@ -51,7 +48,7 @@
     </div>
 
     <div class="gameCards">
-    <h2> Editar un juego </h2>
+      <h2> Editar un juego </h2>
       <form action="editarItem" method="POST">
         <select name="item_id">
           {foreach from=$games item=game}
@@ -101,7 +98,7 @@
     </div>
 
     <div class="gameCards">
-    <h2> Eliminar un juego </h2>
+      <h2> Eliminar un juego </h2>
       <form action="eliminarItem" method="POST">
         <select name="item_id">
           {foreach from=$games item=game}
@@ -116,7 +113,7 @@
   <div class="categoryAdmin">
     <h2 class="categoryAdmin">Sección Categorias</h2>
     <div class="gameCards">
-    <h2> Agregar una categoría </h2>
+      <h2> Agregar una categoría </h2>
       <div class="form-group">
         <form action="agregarCat" method="POST">
           <label for="nombreCat">Nombre de la nueva categoria:</label>
@@ -132,8 +129,8 @@
       </form>
     </div>
 
-    <div class="gameCards">    
-    <h2> Editar una categoría </h2>
+    <div class="gameCards">
+      <h2> Editar una categoría </h2>
       <form action="editarCat" method="post">
         <select name="cat_id_edit">
           {foreach from=$categories item=categorie}
@@ -149,8 +146,9 @@
     </div>
 
     <div class="gameCards">
-    <h2> Eliminar una categoría </h2>
-    <p> Aclaración: En caso de querer borrar una categoria es necesario haber eliminado previamente cada juego de dicha categoria.</p>
+      <h2> Eliminar una categoría </h2>
+      <p> Aclaración: En caso de querer borrar una categoria es necesario haber eliminado previamente cada juego de
+        dicha categoria.</p>
       <form action="eliminarCat" method="POST">
         <select name="cat_id">
           {foreach from=$categories item=categorie}

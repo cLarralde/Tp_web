@@ -30,12 +30,11 @@ class CategoryController
   { // INSERTA UNA CATEGORIA ALA BASE DE DATOS
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
     if (!empty($_POST['input_nombreCat']) && !empty($_POST['input_descripcionCat'])) {
       $nombre_categoria = $_POST['input_nombreCat'];
       $descripcion_categoria = $_POST['input_descripcionCat'];
-      $last_id = $this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
-      $this->userView->adminView($items, $categories, $last_id);
+      $mensaje = $this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
+      $this->userView->showResult($categories, $mensaje);
     }
   }
 
@@ -43,12 +42,10 @@ class CategoryController
   { //ELIMINA UNA CATEGORIA
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
-    $this->userView->adminView($items, $categories);
     if (!empty($_POST['cat_id'])) {
       $cat_id = $_POST['cat_id'];
-      $last_id = $this->categoryModel->deleteCategory($cat_id);
-      $this->userView->adminView($items, $categories, $last_id);
+      $mensaje = $this->categoryModel->deleteCategory($cat_id);
+      $this->userView->showResult($categories, $mensaje);
     }
   }
 
@@ -56,14 +53,12 @@ class CategoryController
   { //EDITA UNA CATEGORIA
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    $items = $this->gameModel->getItems();
-    $this->userView->adminView($items, $categories);
     if (!empty($_POST['catEdit_name']) && !empty($_POST['descripcionCatEdit']) && !empty($_POST['cat_id_edit'])) {
       $id = $_POST['cat_id_edit'];
       $catName = $_POST['catEdit_name'];
       $catDescription = $_POST['descripcionCatEdit'];
-      $last_id = $this->categoryModel->editCategory($id, $catName, $catDescription);
-      $this->userView->adminView($items, $categories, $last_id);
+      $mensaje = $this->categoryModel->editCategory($id, $catName, $catDescription);
+      $this->userView->showResult($categories, $mensaje);
     }
   }
 }
