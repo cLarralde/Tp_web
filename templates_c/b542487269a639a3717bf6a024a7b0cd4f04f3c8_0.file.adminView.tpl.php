@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-15 04:17:57
+/* Smarty version 4.2.1, created on 2022-10-15 16:00:14
   from 'C:\xampp\htdocs\Trabajo_especial\templates\adminView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634a18550c7688_32034707',
+  'unifunc' => 'content_634abcee1efe47_12089852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b542487269a639a3717bf6a024a7b0cd4f04f3c8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\adminView.tpl',
-      1 => 1665799486,
+      1 => 1665842346,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634a18550c7688_32034707 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634abcee1efe47_12089852 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
@@ -33,33 +33,33 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
       <form action="agregarItem" method="POST">
         <div class="form-group">
           <label for="logo">Logo URL</label>
-          <input class="form-control" id="logo" name=input_logo type="text" placeholder="logo">
+          <input class="form-control" id="logo" name=input_logo type="text" placeholder="logo" required>
         </div>
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input class="form-control" id="nombre" name="input_nombre" type="text" placeholder="nombre">
+          <input class="form-control" id="nombre" name="input_nombre" type="text" placeholder="nombre" required>
         </div>
         <div class="form-group">
           <label for="fecha_lanzamiento">Fecha lanzamiento</label>
           <input class="form-control" id="fecha_lanzamiento" name="input_fecha" type="text"
-            placeholder="fecha lanzamiento">
+            placeholder="fecha lanzamiento" required>
         </div>
         <div class="form-group">
           <label for="description">Descripcion</label>
-          <input class="form-control" id="description" name="input_description" type="text" placeholder="description">
+          <input class="form-control" id="description" name="input_description" type="text" placeholder="description" required>
         </div>
         <div class="form-group">
           <label for="valorizacion">Valorizacion</label>
           <input class="form-control" id="valorizacion" name="input_valorizacion" type="text"
-            placeholder="valorizacion">
+            placeholder="valorizacion" required>
         </div>
         <div class="form-group">
           <label for="peso">Peso</label>
-          <input class="form-control" id="peso" name="input_peso" type="text" placeholder="peso">
+          <input class="form-control" id="peso" name="input_peso" type="text" placeholder="peso" required>
         </div>
         <div class="form-group">
           <label for="precio">Precio</label>
-          <input class="form-control" id="precio" name="input_precio" type="text" placeholder="Precio">
+          <input class="form-control" id="precio" name="input_precio" type="text" placeholder="Precio" required>
         </div>
         <div class="form-group">
           <label for="input_item_fk_add">Genero FK</label>
@@ -101,34 +101,34 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <div class="form-group">
           <label for="logo">Logo URL</label>
-          <input class="form-control" id="logo" name=input_logo_edit type="text" placeholder="logo">
+          <input class="form-control" id="logo" name=input_logo_edit type="text" placeholder="logo" required>
         </div>
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input class="form-control" id="nombre" name="input_nombre_edit" type="text" placeholder="nombre">
+          <input class="form-control" id="nombre" name="input_nombre_edit" type="text" placeholder="nombre" required>
         </div>
         <div class="form-group">
           <label for="fecha_lanzamiento">Fecha lanzamiento</label>
           <input class="form-control" id="fecha_lanzamiento" name="input_fecha_edit" type="text"
-            placeholder="fecha lanzamiento">
+            placeholder="fecha lanzamiento" required>
         </div>
         <div class="form-group">
           <label for="description">Descripcion</label>
           <input class="form-control" id="description" name="input_description_edit" type="text"
-            placeholder="description">
+            placeholder="description" required>
         </div>
         <div class="form-group">
           <label for="valorizacion">Valorizacion</label>
           <input class="form-control" id="valorizacion" name="input_valorizacion_edit" type="text"
-            placeholder="valorizacion">
+            placeholder="valorizacion" required>
         </div>
         <div class="form-group">
           <label for="peso">Peso</label>
-          <input class="form-control" id="peso" name="input_peso_edit" type="text" placeholder="peso">
+          <input class="form-control" id="peso" name="input_peso_edit" type="text" placeholder="peso" required>
         </div>
         <div class="form-group">
           <label for="precio">Precio</label>
-          <input class="form-control" id="precio" name="input_precio_edit" type="text" placeholder="Precio">
+          <input class="form-control" id="precio" name="input_precio_edit" type="text" placeholder="Precio" required>
         </div>
         <div class="form-group">
           <select name="input_item_fk_edit">
@@ -180,12 +180,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <form action="agregarCat" method="POST">
           <label for="nombreCat">Nombre de la nueva categoria:</label>
           <input class="form-control" id="nombreCat" name="input_nombreCat" type="text"
-            placeholder="Nombre de Categoria">
+            placeholder="Nombre de Categoria" required>
       </div>
       <div class="form-group">
         <label for="descripcionCat">Descripción de la nueva categoria:</label>
         <input class="form-control" id="descripcionCat" name="input_descripcionCat" type="text"
-          placeholder="Ingrese una descripción">
+          placeholder="Ingrese una descripción" required>
       </div>
       <button type="submit">Agregar categoria</button>
       </form>
@@ -209,9 +209,9 @@ $_smarty_tpl->tpl_vars['categorie']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <label for="catEdit_name">Nombre Categoria:</label>
-        <input class="form-control" name="catEdit_name" type="text">
+        <input class="form-control" name="catEdit_name" type="text" required>
         <label for="descripcionCatEdit">Descripción de categoria:</label>
-        <input class="form-control" name="descripcionCatEdit" type="text">
+        <input class="form-control" name="descripcionCatEdit" type="text" required>
         <button type="submit">Editar Categoria</button>
       </form>
     </div>
