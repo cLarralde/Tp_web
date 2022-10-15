@@ -23,7 +23,7 @@ class GameController
   { //MUESTRA TODOS LOS ITEMS/JUEGOS EN NUESTRA PAGINA DE INICIO
     $categories = $this->categoryModel->getCategories(); // TIENE QUE ESTAR PARA EL NAVBAR DE ACA SALE LAS LISTAS DE CATEGORIAS Y SE LO MANDO COMO PARAMETRO
     $items = $this->gameModel->getItems(); //traigo todos los juegos y los guardo en $items
-    $this->gameView->showViewItems($items,$categories); // TIENE QUE ESTAR PARA EL NAVBAR
+    $this->gameView->showViewItems($items, $categories); // TIENE QUE ESTAR PARA EL NAVBAR
 
   }
 
@@ -45,13 +45,13 @@ class GameController
         }
       }
     }
-    $this->gameView->showGamesCategory($arrayjuegos,$categories);
+    $this->gameView->showGamesCategory($arrayjuegos, $categories);
   }
   function showItem($idItem)
   { //MUESTRA UN SOLO ITEM POR ID
     $item = $this->gameModel->getItem($idItem);
     $categories = $this->categoryModel->getCategories();
-    $this->gameView->showViewItem($item,$categories);
+    $this->gameView->showViewItem($item, $categories);
   }
   function insertItemBd()
   { // INSERTA UN ITEM ALA BASE DE DATOS
@@ -68,24 +68,23 @@ class GameController
       $precio = $_POST['input_precio'];
       $genero_fk = $_POST['input_item_fk_add'];
       $last_id = $this->gameModel->insertNewItem($logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
-      $this->userView->adminView($items,$categories,$last_id);
-
+      $this->userView->adminView($items, $categories, $last_id);
     }
   }
   function deleteItem()
   { //ELIMINA UN ITEM DE LA BASE DE DATOS
-    $logueado=$this->securityHelper->checkLoggedIn();
+    $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
     $items = $this->gameModel->getItems();
     if (!empty($_POST['item_id'])) {
       $item_id = $_POST['item_id'];
       $last_id = $this->gameModel->deleteItem($item_id);
-      $this->userView->adminView($items,$categories,$last_id);
+      $this->userView->adminView($items, $categories, $last_id);
     }
   }
   function editItem()
   { //EDITA UN ITEM
-    $logueado=$this->securityHelper->checkLoggedIn();
+    $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
     $items = $this->gameModel->getItems();
     if (!empty($_POST['item_id']) && !empty($_POST['input_logo_edit']) && !empty($_POST['input_nombre_edit']) && !empty($_POST['input_fecha_edit']) && !empty($_POST['input_description_edit']) && !empty($_POST['input_valorizacion_edit']) && !empty($_POST['input_peso_edit']) && !empty($_POST['input_precio_edit']) && !empty($_POST['input_item_fk_edit'])) {
@@ -99,7 +98,7 @@ class GameController
       $precio = $_POST['input_precio_edit'];
       $genero_fk = $_POST['input_item_fk_edit'];
       $last_id = $this->gameModel->editItem($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
-      $this->userView->adminView($items,$categories,$last_id);
+      $this->userView->adminView($items, $categories, $last_id);
     }
   }
 }

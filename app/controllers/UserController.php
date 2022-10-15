@@ -6,9 +6,7 @@ require_once './app/models/gameModel.php';
 require_once './helper/SecurityHelper.php';
 
 class UserController
-{ //TODO:HACER UNA FUNCION QUE VERFIQUE QUE ESTA LOGUEADO QUE DE VUELVA UN BOOLEANO O TE LLEVE A LOGIN
-  //https://gitlab.com/unicen/Web2/livecoding2019/bolivar/todo-list/-/blob/master/helpers/auth.helper.php
-  //HACER LOGOUT 
+{ 
   private $userModel;
   private $userView;
   private $categoryModel;
@@ -48,9 +46,8 @@ class UserController
         $_SESSION["ID_USER"] = $user->id;
         $_SESSION["username"] = $user->email;
         header('location:' . ADMIN);
-      } else {
-        $this->userView->showLogin("Login incorrecto");
-        echo "no entro";
+      }else {
+        header('location:' . LOGIN);
       }
     }
   }
