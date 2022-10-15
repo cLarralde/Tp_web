@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2022 a las 00:47:31
+-- Tiempo de generación: 15-10-2022 a las 04:17:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -43,9 +43,7 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcionCat`) VALUES
 (1, 'Accion', 'Los videojuegos de acción son aquellos en el que el jugador debe usar su velocidad, destreza y tiempo de reacción'),
 (2, 'Supervivencia', 'Los videojuegos de supervivencia son aquellos ambientados en un ambiente hostil, intenso y de mundo abierto, donde los jugadores generalmente comienzan con equipos mínimos y se les exige que recolecten recursos, herramientas de artesanía, armas y refugio, y sobrevivan el mayor tiempo posible. '),
 (3, 'Estrategia', 'Los videojuegos de estrategia son videojuegos que requieren que el jugador ponga en práctica sus habilidades de planeamiento y pensamiento para conseguir la victoria. '),
-(4, 'Carreras', 'Los videojuegos de carreras son aquellos que se basan en las competencias de velocidad entre vehículos o personajes. '),
-(11, 'caro', 'caro'),
-(12, 'sfsdfsdf', 'sdfsdf');
+(4, 'Carreras', 'Los videojuegos de carreras son aquellos que se basan en las competencias de velocidad entre vehículos o personajes. ');
 
 -- --------------------------------------------------------
 
@@ -105,10 +103,6 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
-(7, 'fer@asds', '$argon2id$v=19$m=65536,t=4,p=1$L1dvVEhxQlJFWnBaRWxmTw$AEo7gnijr4j79278Bc2jkilGUMH/g4eVOMN6RTUY5cE'),
-(8, 'fer@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$TXZtOFprcFRPVGc2N1kwVA$HNcTfJ7COH02AGtnLA/8t41r1vFrWBVB3MQ7bivyKOo'),
-(9, 'fer@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$MklOVE5DLjNZdnBYUkRiTg$akHxtexbYph8cujWZAd/18JFNwvmEbO4QXAb0mS8Exs'),
-(10, 'fer@gl.com', '$argon2id$v=19$m=65536,t=4,p=1$VDFnSnpjdXY5UlhQRnZKSw$clDgKTHuYF1aBqpVUuGnovQax94XWzSLFwVtxB8JRIg'),
 (11, 'fer@gl.com', '$argon2id$v=19$m=65536,t=4,p=1$SVVKRmhDVGlRYXBkdk1IWA$VInKsJbZiuVimCHtdp85WNGD8O+0EyKfcp8KZAC5c88');
 
 --
@@ -142,13 +136,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
