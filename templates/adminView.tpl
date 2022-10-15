@@ -1,9 +1,12 @@
 {include file="header.tpl"}
 <div class="container">
-
+  {if $id}
+    <p class="consulta">{$id}</p>
+  {/if}
   <div class="GameAdmin">
     <h2 class="GameAdmin">Sección Juegos</h2>
     <div class="gameCards">
+    <h2> Agregar un juego </h2>
       <form action="agregarItem" method="POST">
         <div class="form-group">
           <label for="logo">Logo URL</label>
@@ -44,13 +47,11 @@
           </select>
         </div>
         <button type="submit">Agregar Juego</button>
-        {if $id}
-          <p class="consulta">la consulta fue exitosa</p>
-        {/if}
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Editar un juego </h2>
       <form action="editarItem" method="POST">
         <select name="item_id">
           {foreach from=$games item=game}
@@ -96,13 +97,11 @@
           </select>
         </div>
         <button type="submit">Editar juego</button>
-        {if $id}
-          <p class="consulta">la consulta fue exitosa</p>
-        {/if}
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Eliminar un juego </h2>
       <form action="eliminarItem" method="POST">
         <select name="item_id">
           {foreach from=$games item=game}
@@ -110,9 +109,6 @@
           {/foreach}
         </select>
         <button type="submit">Eliminar juego</button>
-        {if $id}
-          <p class="consulta">la consulta fue exitosa</p>
-        {/if}
       </form>
     </div>
   </div>
@@ -120,6 +116,7 @@
   <div class="categoryAdmin">
     <h2 class="categoryAdmin">Sección Categorias</h2>
     <div class="gameCards">
+    <h2> Agregar una categoría </h2>
       <div class="form-group">
         <form action="agregarCat" method="POST">
           <label for="nombreCat">Nombre de la nueva categoria:</label>
@@ -132,13 +129,11 @@
           placeholder="Ingrese una descripción">
       </div>
       <button type="submit">Agregar categoria</button>
-      {if $id}
-        <p class="consulta">la consulta fue exitosa</p>
-      {/if}
       </form>
     </div>
 
-    <div class="gameCards">
+    <div class="gameCards">    
+    <h2> Editar una categoría </h2>
       <form action="editarCat" method="post">
         <select name="cat_id_edit">
           {foreach from=$categories item=categorie}
@@ -150,13 +145,12 @@
         <label for="descripcionCatEdit">Descripción de categoria:</label>
         <input class="form-control" name="descripcionCatEdit" type="text">
         <button type="submit">Editar Categoria</button>
-        {if $id}
-          <p class="consulta">la consulta fue exitosa</p>
-        {/if}
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Eliminar una categoría </h2>
+    <p> Aclaración: En caso de querer borrar una categoria es necesario haber eliminado previamente cada juego de dicha categoria.</p>
       <form action="eliminarCat" method="POST">
         <select name="cat_id">
           {foreach from=$categories item=categorie}
@@ -164,9 +158,6 @@
           {/foreach}
         </select>
         <button type="submit">Eliminar Categoria</button>
-        {if $id}
-          <p class="consulta">la consulta fue exitosa</p>
-        {/if}
       </form>
     </div>
   </div>

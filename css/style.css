@@ -1,79 +1,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-a{
-  color: rgb(0, 0, 0);
+
+a {
+  color: rgb(255, 255, 255);
 }
-ul li{
+.consulta{
+  color: #288f26;
+  background-color: #333333;
+  font-weight: bolder;
+  text-align: center;
+  font-size: larger;
+}
+ul li {
   text-decoration: none;
 }
-.gameCards{
-text-align: center;
-border: 0.2rem solid #CA3E47;
-margin: 0.2rem;
+
+.gameCards {
+  text-align: center;
+  border: 0.2rem solid #CA3E47;
+  margin: 0.5rem;
   background-color: #333333;
-  color:#fff
+  color: #fff
 }
-.GameAdmin{
+
+.GameAdmin {
   border: #414141 0.5rem solid;
   font-weight: bolder;
   color: #ffffff;
   background-color: #414141;
   text-align: left;
 }
-.categoryAdmin{
+
+.categoryAdmin {
   border: #414141 0.5rem solid;
   font-weight: bolder;
   color: #ffffff;
   background-color: #414141;
   text-align: right;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Source Sans Pro', sans-serif;;
+  font-family: 'Source Sans Pro', sans-serif;
+  ;
   text-decoration: none;
 }
-header{
+
+header {
   grid-area: header;
   width: 100%;
   background-color: #ffffff;
 }
-.header_superior{
+
+.header_superior {
   max-width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
   padding: 10px;
 }
-.logo img{
+
+.logo img {
   width: 100%;
   height: 400px;
 }
+
 /*BARRA MENU*/
-.container__menu{
-   width: 100%;
-   height: 70px;
-   background-color: black;
-   padding: 0px 20px;
+.container__menu {
+  width: 100%;
+  height: 70px;
+  background-color: black;
+  padding: 0px 20px;
 }
-.menu{
+
+.menu {
   max-width: 1200px;
   margin: auto;
   height: 100%;
 }
-nav{
+
+nav {
   height: 100%;
 }
-nav > ul{
+
+nav>ul {
   height: 100%;
   display: flex;
 }
-nav  ul  li {
+
+nav ul li {
   height: 100%;
   list-style: none;
   position: relative;
 }
-nav > ul >li > a{
+
+nav>ul>li>a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -84,13 +106,14 @@ nav > ul >li > a{
   font-size: 14px;
   transition: all 300ms ease;
 }
-nav > ul >li > a:hover p:hover{
+
+nav>ul>li>a:hover p:hover {
   transform: scale(1.1);
   background-color: red;
 }
 
 /*SUBMENU*/
-nav ul li ul{
+nav ul li ul {
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -101,16 +124,18 @@ nav ul li ul{
   padding: 14px 0px;
   visibility: hidden;
   opacity: 0;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   z-index: 10;
   transition: all 300ms ease;
 }
-nav ul li:hover ul{
+
+nav ul li:hover ul {
   visibility: visible;
   opacity: 1;
   top: 70px;
 }
-nav ul li ul:before{
+
+nav ul li ul:before {
   content: '';
   width: 0;
   height: 0;
@@ -121,143 +146,168 @@ nav ul li ul:before{
   top: -12px;
   left: 20px;
 }
-nav ul li ul li a p{
-   display: block;
-   color: rgb(255, 255, 255);
-   padding: 6px;
-   padding-left: 14px;
-   margin-top: 10px;
-   font-size: 14px;
-   text-transform: uppercase;
-   transition: all 300ms ease;
+
+nav ul li ul li a,
+p {
+  display: block;
+  color: rgb(255, 255, 255);
+  padding: 6px;
+  padding-left: 14px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 300ms ease;
 }
-nav ul li ul li a:hover p:hover{
+
+nav ul li ul li a:hover {
   background: #ffffff;
   color: rgb(0, 0, 0);
   transform: scale(1.1);
   padding-left: 30px;
   font-size: 14px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
+
 /*Lista de juegos*/
 
 footer {
-    color: white;
-    background-color: #CA3E47;
-    padding: 10px 20px;
-  
-  }
-  .footerA {
-    
-    text-align: center;
-    background-color: #CA3E47;
-  }
-  .footerA .grupo-1 {
-  
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
-    padding: 45px 0px;
-  }
-  .footerA .grupo-1 .box h2 {
-    color: #ffffff;
-    margin-bottom: 25px;
-    font-size: 20px;
-  }
-  .footerA .grupo-1 .box p {
-    color: #fffdfd;
-    margin-bottom: 10px;
-  }
-  .footerA .grupo-1 .red-social a {
-    display: inline-block;
-    text-decoration: none;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    color: rgb(255, 255, 255);
-    margin-right: 10px;
-    background-color: #0d2033;
-  }
-  .footerA .grupo-1 .red-social a:hover {
-    color: aqua;
-  }
-  
-  .footerA .grupo-2 {
-    background-color: #CA3E47;
-    padding: 15px 10px;
-    text-align: center;
-    color: #ffffff;
-  }
-  .footerA .grupo-2 small {
-    font-size: 15px;
-  }
-  .icon__menu{
-    font-size: 26px;
-    color: #fff;
-    cursor: pointer;
-    width: 26px;
-    height: 100%;
-    align-items: center;
-    display: none;
-    
-  }
-  #check__menu{
-    display: none;
-  }
-  #label__check{
-    width: 26px;
-    height: 100%;
-    display: none;
-  }
-  .username:hover{
-   background: rgb(234, 0, 0);  
-  }
-  .username{
-    color: #fff;
-  }
-  /*ELEMENTOS RESPOSIVE*/
-  @media screen and (max-width:720px) {
-    .header__superior{
-      padding: 10px;
-    }
-    nav > ul{
-      flex-direction: column;
-      background-color: #0d2033;
-      position: fixed;
-      left: 0;
-      top: 158px;
-      width: 100%;
-      height: 0px;
-      transition: all 300ms ease;
-      z-index: 100;
-      opacity: 0;
-      visibility: hidden;
-    }
-    nav > ul > li > a:hover{
-      transform: scale(1);
-    }
-    nav ul li ul{
-      left: 90px;
+  color: white;
+  background-color: #CA3E47;
+  padding: 10px 20px;
 
-    }
-    nav > ul > li:hover ul{
-      top:50px
-    }
-    nav > ul > li:first-child a{
-      background-position: 20px;
-    }
-    #label__check{
-      display: block;
-    }
-    .icon__menu{
-      display: flex;
-    }
-    #check__menu:checked ~ nav > ul{
-      height: 300px;
-      visibility: visible;
-      opacity: 1;
-    }
-    
+}
+
+.footerA {
+
+  text-align: center;
+  background-color: #CA3E47;
+}
+
+.footerA .grupo-1 {
+
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.footerA .grupo-1 .box h2 {
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.footerA .grupo-1 .box p {
+  color: #fffdfd;
+  margin-bottom: 10px;
+}
+
+.footerA .grupo-1 .red-social a {
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: rgb(255, 255, 255);
+  margin-right: 10px;
+  background-color: #0d2033;
+}
+
+.footerA .grupo-1 .red-social a:hover {
+  color: aqua;
+}
+
+.footerA .grupo-2 {
+  background-color: #CA3E47;
+  padding: 15px 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.footerA .grupo-2 small {
+  font-size: 15px;
+}
+
+.icon__menu {
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  width: 26px;
+  height: 100%;
+  align-items: center;
+  display: none;
+
+}
+
+#check__menu {
+  display: none;
+}
+
+#label__check {
+  width: 26px;
+  height: 100%;
+  display: none;
+}
+
+.username:hover {
+  background: rgb(234, 0, 0);
+}
+
+.username {
+  color: #fff;
+}
+
+/*ELEMENTOS RESPOSIVE*/
+@media screen and (max-width:720px) {
+  .header__superior {
+    padding: 10px;
   }
+
+  nav>ul {
+    flex-direction: column;
+    background-color: #0d2033;
+    position: fixed;
+    left: 0;
+    top: 158px;
+    width: 100%;
+    height: 0px;
+    transition: all 300ms ease;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  nav>ul>li>a:hover {
+    transform: scale(1);
+  }
+
+  nav ul li ul {
+    left: 90px;
+
+  }
+
+  nav>ul>li:hover ul {
+    top: 50px
+  }
+
+  nav>ul>li:first-child a {
+    background-position: 20px;
+  }
+
+  #label__check {
+    display: block;
+  }
+
+  .icon__menu {
+    display: flex;
+  }
+
+  #check__menu:checked~nav>ul {
+    height: 300px;
+    visibility: visible;
+    opacity: 1;
+  }
+
+}

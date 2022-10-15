@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 19:06:46
+/* Smarty version 4.2.1, created on 2022-10-15 00:55:01
   from 'C:\xampp\htdocs\Trabajo_especial\templates\gamesList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634845a65ce076_38908515',
+  'unifunc' => 'content_6349e8c5375195_99927881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1436bcd7c6c85864179214d6e428ab9eb3b4fb0b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\gamesList.tpl',
-      1 => 1665679488,
+      1 => 1665784156,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634845a65ce076_38908515 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349e8c5375195_99927881 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <ul class="list_games">

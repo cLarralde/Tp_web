@@ -1,8 +1,9 @@
 {include file="header.tpl"}
 <div class="container">
-    <div class="inicioSesion">
+    <div class="inicioSesion gameCards">
         <form action="iniciarsesion/verificarLogin" method="POST">
             <div class="form-group">
+                <h2> Iniciar Sesión </h2>
                 <label for="email">Email:</label>
                 <input class="form-control" id="email" name="input_email" type="email" placeholder="Ingrese su email">
             </div>

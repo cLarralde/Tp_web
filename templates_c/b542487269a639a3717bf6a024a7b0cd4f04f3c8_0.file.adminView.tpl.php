@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 19:14:07
+/* Smarty version 4.2.1, created on 2022-10-15 03:17:03
   from 'C:\xampp\htdocs\Trabajo_especial\templates\adminView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348475f4a53d4_14491768',
+  'unifunc' => 'content_634a0a0f95be71_84988520',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b542487269a639a3717bf6a024a7b0cd4f04f3c8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\adminView.tpl',
-      1 => 1665681197,
+      1 => 1665796618,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6348475f4a53d4_14491768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634a0a0f95be71_84988520 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
-
+  <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
+    <p class="consulta"><?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+</p>
+  <?php }?>
   <div class="GameAdmin">
     <h2 class="GameAdmin">Sección Juegos</h2>
     <div class="gameCards">
+    <h2> Agregar un juego </h2>
       <form action="agregarItem" method="POST">
         <div class="form-group">
           <label for="logo">Logo URL</label>
@@ -79,13 +83,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </select>
         </div>
         <button type="submit">Agregar Juego</button>
-        <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-          <p class="consulta">la consulta fue exitosa</p>
-        <?php }?>
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Editar un juego </h2>
       <form action="editarItem" method="POST">
         <select name="item_id">
           <?php
@@ -149,13 +151,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </select>
         </div>
         <button type="submit">Editar juego</button>
-        <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-          <p class="consulta">la consulta fue exitosa</p>
-        <?php }?>
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Eliminar un juego </h2>
       <form action="eliminarItem" method="POST">
         <select name="item_id">
           <?php
@@ -172,9 +172,6 @@ $_smarty_tpl->tpl_vars['game']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <button type="submit">Eliminar juego</button>
-        <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-          <p class="consulta">la consulta fue exitosa</p>
-        <?php }?>
       </form>
     </div>
   </div>
@@ -182,6 +179,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <div class="categoryAdmin">
     <h2 class="categoryAdmin">Sección Categorias</h2>
     <div class="gameCards">
+    <h2> Agregar una categoría </h2>
       <div class="form-group">
         <form action="agregarCat" method="POST">
           <label for="nombreCat">Nombre de la nueva categoria:</label>
@@ -194,13 +192,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           placeholder="Ingrese una descripción">
       </div>
       <button type="submit">Agregar categoria</button>
-      <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-        <p class="consulta">la consulta fue exitosa</p>
-      <?php }?>
       </form>
     </div>
 
-    <div class="gameCards">
+    <div class="gameCards">    
+    <h2> Editar una categoría </h2>
       <form action="editarCat" method="post">
         <select name="cat_id_edit">
           <?php
@@ -221,13 +217,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <label for="descripcionCatEdit">Descripción de categoria:</label>
         <input class="form-control" name="descripcionCatEdit" type="text">
         <button type="submit">Editar Categoria</button>
-        <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-          <p class="consulta">la consulta fue exitosa</p>
-        <?php }?>
       </form>
     </div>
 
     <div class="gameCards">
+    <h2> Eliminar una categoría </h2>
+    <p> Aclaración: En caso de querer borrar una categoria es necesario haber eliminado previamente cada juego de dicha categoria.</p>
       <form action="eliminarCat" method="POST">
         <select name="cat_id">
           <?php
@@ -244,9 +239,6 @@ $_smarty_tpl->tpl_vars['categorie']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <button type="submit">Eliminar Categoria</button>
-        <?php if ($_smarty_tpl->tpl_vars['id']->value) {?>
-          <p class="consulta">la consulta fue exitosa</p>
-        <?php }?>
       </form>
     </div>
   </div>

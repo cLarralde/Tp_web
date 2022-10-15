@@ -29,14 +29,14 @@ class GameModel
         return $this->db->lastInsertId();
     }
     function deleteItem($items_id)
-    {//ELIMINA UN ITEM EN LA BASE DE BD
+    { //ELIMINA UN ITEM EN LA BASE DE BD
         $query = $this->db->prepare("DELETE FROM `juegos` WHERE id=?");
         $query->execute([$items_id]);
         return $this->db->lastInsertId();
     }
 
     function editItem($id, $logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $fk_id_categoria)
-    {//EDITA UN ITEM EN LA BD
+    { //EDITA UN ITEM EN LA BD
         $query = $this->db->prepare("UPDATE `juegos` SET logo=? ,nombre=? ,fecha_lanzamiento=? ,descripcion=? ,valorizacion=? ,peso=? ,precio=?,fk_id_categoria=? WHERE id=?");
         $query->execute([$logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $fk_id_categoria, $id]);
         return $this->db->lastInsertId();

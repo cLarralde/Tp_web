@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 19:06:46
+/* Smarty version 4.2.1, created on 2022-10-15 02:05:22
   from 'C:\xampp\htdocs\Trabajo_especial\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634845a666c345_48159845',
+  'unifunc' => 'content_6349f94209e352_39290150',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1d5cf0b11308c928aef5b1c1602a93c1570b0c7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\header.tpl',
-      1 => 1665679488,
+      1 => 1665792318,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634845a666c345_48159845 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349f94209e352_39290150 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -62,20 +62,30 @@ $_smarty_tpl->tpl_vars['categoria']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 ?>
-                  <li><a href="categorias/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+                    <li><a href="categorias/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
 </a></li>
                   <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </ul>
-        
-              <li><a href="iniciarsesion">Iniciar Sesion</a></li>
-              <li><a href="registrarse">Registrarse</a></li>
+                <?php if ((isset($_SESSION['username']))) {?>
+                <li><a href="admin">Modo admin</a></li>
+                <li><a href="cerrarsesion">Cerrar Sesion</a></li>
+              <?php } else { ?>
+                <li><a href="iniciarsesion">Iniciar Sesion</a></li>
+                <li><a href="registrarse">Registrarse</a></li>
+              <?php }?>
+              <?php if ((isset($_SESSION['username']))) {?>
+                <li>
+                  <p>Bienvenido: <?php echo $_SESSION['username'];?>
+</p>
+                </li>
+              <?php }?>
             </ul>
           </nav>
         </div>
       </div>
     </div>
-  </header><?php }
+</header><?php }
 }
