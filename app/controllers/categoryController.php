@@ -22,15 +22,15 @@ class CategoryController
   function showCategoriesList()
   { //MUESTRA LA LISTA DE TODAS LA CATEGORIAS
     session_start();
-    $categories = $this->categoryModel->getCategories(); //AGARRO TODAS LA CATEGORIAS Y LAS GUARDO EN $categories
-    $this->categoryView->showAllCategories($categories); // ENVIO A $categories AL VIEW PARA QUE MUESTRA POR PANTALLA LA LISTA DE CATEGORIAS QUE TENGO
+    $categories = $this->categoryModel->getCategories();
+    $this->categoryView->showAllCategories($categories);
   }
 
   function insertcategoryBd()
   { // INSERTA UNA CATEGORIA ALA BASE DE DATOS
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    if (!empty($_POST['input_nombreCat']) && !empty($_POST['input_descripcionCat'])) {
+    if (isset($_POST['input_nombreCat'], $_POST['input_descripcionCat'])) {
       $nombre_categoria = $_POST['input_nombreCat'];
       $descripcion_categoria = $_POST['input_descripcionCat'];
       $mensaje = $this->categoryModel->insertNewCategory($nombre_categoria, $descripcion_categoria);
@@ -53,7 +53,7 @@ class CategoryController
   { //EDITA UNA CATEGORIA
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    if (!empty($_POST['catEdit_name']) && !empty($_POST['descripcionCatEdit']) && !empty($_POST['cat_id_edit'])) {
+    if (isset($_POST['catEdit_name'], $_POST['descripcionCatEdit'], $_POST['cat_id_edit'])) {
       $id = $_POST['cat_id_edit'];
       $catName = $_POST['catEdit_name'];
       $catDescription = $_POST['descripcionCatEdit'];

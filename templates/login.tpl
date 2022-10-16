@@ -5,7 +5,8 @@
             <div class="form-group">
                 <h2> Iniciar Sesión </h2>
                 <label for="email">Email:</label>
-                <input class="form-control" id="email" name="input_email" type="email" placeholder="Ingrese su email" required>
+                <input class="form-control" id="email" name="input_email" type="email" placeholder="Ingrese su email"
+                    required>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>

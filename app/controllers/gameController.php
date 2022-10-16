@@ -62,7 +62,7 @@ class GameController
   { // INSERTA UN ITEM ALA BASE DE DATOS
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    if (!empty($_POST['input_logo']) && !empty($_POST['input_nombre']) && !empty($_POST['input_fecha']) && !empty($_POST['input_description']) && !empty($_POST['input_valorizacion']) && !empty($_POST['input_peso']) && !empty($_POST['input_precio']) && !empty($_POST['input_item_fk_add'])) {
+    if (isset($_POST['input_logo'], $_POST['input_nombre'], $_POST['input_fecha'], $_POST['input_description'], $_POST['input_valorizacion'], $_POST['input_peso'], $_POST['input_precio'], $_POST['input_item_fk_add'])) {
       $logo = $_POST['input_logo'];
       $nombre = $_POST['input_nombre'];
       $fecha = $_POST['input_fecha'];
@@ -86,12 +86,12 @@ class GameController
       $this->userView->showResult($categories, $mensaje);
     }
   }
-  
+
   function editItem()
   { //EDITA UN ITEM
     $this->securityHelper->checkLoggedIn();
     $categories = $this->categoryModel->getCategories();
-    if (!empty($_POST['item_id']) && !empty($_POST['input_logo_edit']) && !empty($_POST['input_nombre_edit']) && !empty($_POST['input_fecha_edit']) && !empty($_POST['input_description_edit']) && !empty($_POST['input_valorizacion_edit']) && !empty($_POST['input_peso_edit']) && !empty($_POST['input_precio_edit']) && !empty($_POST['input_item_fk_edit'])) {
+    if (isset($_POST['item_id'], $_POST['input_logo_edit'], $_POST['input_nombre_edit'], $_POST['input_fecha_edit'], $_POST['input_description_edit'], $_POST['input_valorizacion_edit'], $_POST['input_peso_edit'], $_POST['input_precio_edit'], $_POST['input_item_fk_edit'])) {
       $id = $_POST['item_id'];
       $logo = $_POST['input_logo_edit'];
       $nombre = $_POST['input_nombre_edit'];

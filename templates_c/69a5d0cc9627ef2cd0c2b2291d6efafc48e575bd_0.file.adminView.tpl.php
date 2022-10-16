@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 23:25:06
-  from 'C:\xampp\htdocs\Trabajo_especial\templates\adminView.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-15 19:46:54
+  from 'C:\xampp\htdocs\Tp_web-main\templates\adminView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c76b213ac16_49742227',
+  'unifunc' => 'content_634af20e283710_56715145',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b542487269a639a3717bf6a024a7b0cd4f04f3c8' => 
+    '69a5d0cc9627ef2cd0c2b2291d6efafc48e575bd' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Trabajo_especial\\templates\\adminView.tpl',
-      1 => 1665955461,
+      0 => 'C:\\xampp\\htdocs\\Tp_web-main\\templates\\adminView.tpl',
+      1 => 1665842533,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634c76b213ac16_49742227 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634af20e283710_56715145 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
@@ -46,13 +46,12 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
         </div>
         <div class="form-group">
           <label for="description">Descripcion</label>
-          <input class="form-control" id="description" name="input_description" type="text" placeholder="description"
-            required>
+          <input class="form-control" id="description" name="input_description" type="text" placeholder="description" required>
         </div>
         <div class="form-group">
           <label for="valorizacion">Valorizacion</label>
-          <input class="form-control" id="valorizacion" name="input_valorizacion" type="text" placeholder="valorizacion"
-            required>
+          <input class="form-control" id="valorizacion" name="input_valorizacion" type="text"
+            placeholder="valorizacion" required>
         </div>
         <div class="form-group">
           <label for="peso">Peso</label>

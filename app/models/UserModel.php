@@ -11,6 +11,8 @@ class UserModel
         //CREA UN NUEVO USUARIO EN LA DB
         $query = $this->db->prepare('INSERT INTO `usuarios` (`email`, `password`) VALUES (?,?)');
         $query->execute([$newEmail, $newPassword]);
+        $mensaje = "Se registro con éxito";
+        return $mensaje;
     }
 
     function login($email)

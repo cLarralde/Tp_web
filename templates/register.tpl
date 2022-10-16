@@ -2,9 +2,11 @@
 <div class="registro gameCards">
     <form action="registrarse/verificarRegistro" method="POST">
         <div class="form-group">
+            {if $mensaje} <h2> {$mensaje}</h2>{/if}
             <h2> Registrarse </h2>
             <label for="newEmail">Email:</label>
-            <input class="form-control" id="newEmail" name="input_newEmail" type="email" placeholder="Ingrese su email" required>
+            <input class="form-control" id="newEmail" name="input_newEmail" type="email" placeholder="Ingrese su email"
+                required>
         </div>
         <div class="form-group">
             <label for="newPassword">Contraseña:</label>

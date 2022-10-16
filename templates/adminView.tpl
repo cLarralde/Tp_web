@@ -20,12 +20,13 @@
         </div>
         <div class="form-group">
           <label for="description">Descripcion</label>
-          <input class="form-control" id="description" name="input_description" type="text" placeholder="description" required>
+          <input class="form-control" id="description" name="input_description" type="text" placeholder="description"
+            required>
         </div>
         <div class="form-group">
           <label for="valorizacion">Valorizacion</label>
-          <input class="form-control" id="valorizacion" name="input_valorizacion" type="text"
-            placeholder="valorizacion" required>
+          <input class="form-control" id="valorizacion" name="input_valorizacion" type="text" placeholder="valorizacion"
+            required>
         </div>
         <div class="form-group">
           <label for="peso">Peso</label>
