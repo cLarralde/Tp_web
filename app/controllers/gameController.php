@@ -73,9 +73,6 @@ class GameController
       $genero_fk = $_POST['input_item_fk_add'];
       $mensaje = $this->gameModel->insertNewItem($logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->userView->showResult($categories, $mensaje);
-    }else{
-      $mensaje = "error";
-      $this->userView->showResult($categories, $mensaje);
     }
   }
 
@@ -86,9 +83,6 @@ class GameController
     if (!empty($_POST['item_id'])) {
       $item_id = $_POST['item_id'];
       $mensaje = $this->gameModel->deleteItem($item_id);
-      $this->userView->showResult($categories, $mensaje);
-    }else{
-      $mensaje = "error";
       $this->userView->showResult($categories, $mensaje);
     }
   }
@@ -108,9 +102,6 @@ class GameController
       $precio = $_POST['input_precio_edit'];
       $genero_fk = $_POST['input_item_fk_edit'];
       $mensaje = $this->gameModel->editItem($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
-      $this->userView->showResult($categories, $mensaje);
-    }else{
-      $mensaje = "error";
       $this->userView->showResult($categories, $mensaje);
     }
   }
