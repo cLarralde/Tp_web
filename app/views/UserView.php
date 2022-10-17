@@ -19,11 +19,12 @@ class UserView
       $smarty->display('templates/login.tpl');
    }
 
-   function showRegister($categories)
+   function showRegister($categories, $mensaje = NULL)
    {
       //MUESTRA EL FORMULARIO DE REGISTRARSE
       $smarty = new Smarty();
       $smarty->assign('titulo', $this->title);
+      $smarty->assign('mensaje', $mensaje);
       $smarty->assign('categories', $categories);
       $smarty->display('templates/register.tpl');
    }
@@ -46,5 +47,15 @@ class UserView
       $smarty->assign('mensaje', $mensaje);
       $smarty->assign('categories', $categories);
       $smarty->display('templates/adminResult.tpl');
+   }
+
+   function showResultRegister($categories, $mensaje)
+   {
+      // MUESTRA EL RESULTADO DE LAS CONSULTAS REALIZADAS EN MODO ADMIN
+      $smarty = new Smarty();
+      $smarty->assign('titulo', $this->title);
+      $smarty->assign('mensaje', $mensaje);
+      $smarty->assign('categories', $categories);
+      $smarty->display('templates/resultRegister.tpl');
    }
 }

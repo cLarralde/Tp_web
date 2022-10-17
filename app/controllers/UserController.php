@@ -21,7 +21,7 @@ class UserController
     $this->securityHelper = new SecurityHelper();
   }
 
-  function register()
+  function showRegister()
   { //FORMULARIO DE REGISTRO
     session_start(); //Para que me traiga la session en caso de que ya exista una
     if (isset($_SESSION["username"])) { //Si existe, entonces necesitamos que la session se destruya (Ya que ya habia una sesion iniciada y para que queres registrarte en ese caso)
@@ -30,11 +30,17 @@ class UserController
     } else {
       $categories = $this->categoryModel->getCategories();
       $this->userView->showRegister($categories);
-      if (!empty($_POST['input_newEmail']) && !empty($_POST['input_newPassword'])) {
-        $newEmail = $_POST['input_newEmail'];
-        $newPassword = password_hash($_POST['input_newPassword'], PASSWORD_ARGON2ID); //Hasheo la contraseña creada en argon2id.
-        $this->userModel->newUser($newEmail, $newPassword);
-      }
+    }
+  }
+
+  function verifyRegister()
+  {
+    $categories = $this->categoryModel->getCategories();
+    if (isset($_POST['input_newEmail'], $_POST['input_newPassword'])) {
+      $newEmail = $_POST['input_newEmail'];
+      $newPassword = password_hash($_POST['input_newPassword'], PASSWORD_ARGON2ID); //Hasheo la contraseña creada en argon2id.
+      $mensaje = $this->userModel->newUser($newEmail, $newPassword);
+      $this->userView->showResultRegister($categories, $mensaje);
     }
   }
 
@@ -47,7 +53,7 @@ class UserController
     } else {
       $categories = $this->categoryModel->getCategories();
       $this->userView->showLogin($categories);
-      if (!empty($_POST['input_email']) && !empty($_POST['input_password'])) {
+      if (isset($_POST['input_email'], $_POST['input_password'])) {
         $email = $_POST['input_email'];
         $password = $_POST['input_password'];
         $user = $this->userModel->login($email);

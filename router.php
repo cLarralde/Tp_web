@@ -51,10 +51,10 @@ switch ($params[0]) {
 
   case 'registrarse': 
     if(!isset($params[1])){
-    $userController->register();
+    $userController->showRegister();
     }
     else if($params[1]=='verificarRegistro'){
-      $userController->register();
+      $userController->verifyRegister();
     }
     break;
 
