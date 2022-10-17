@@ -73,6 +73,8 @@ class GameController
       $genero_fk = $_POST['input_item_fk_add'];
       $mensaje = $this->gameModel->insertNewItem($logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->userView->showResult($categories, $mensaje);
+    }else{
+      header('location:' . ADMIN);
     }
   }
 
@@ -84,6 +86,8 @@ class GameController
       $item_id = $_POST['item_id'];
       $mensaje = $this->gameModel->deleteItem($item_id);
       $this->userView->showResult($categories, $mensaje);
+    }else{
+      header('location:' . ADMIN);
     }
   }
 
@@ -103,6 +107,8 @@ class GameController
       $genero_fk = $_POST['input_item_fk_edit'];
       $mensaje = $this->gameModel->editItem($id, $logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->userView->showResult($categories, $mensaje);
+    }else{
+      header('location:' . ADMIN);
     }
   }
 }
