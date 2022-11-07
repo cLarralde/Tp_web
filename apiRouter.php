@@ -6,8 +6,8 @@ define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_
 $router = new Router();
 
 $router->addRoute('juegos', 'GET', 'GameApiController', 'getGames');
-$router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
 $router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
+$router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
 $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
 $router->addRoute('juegos/:ID', 'DELETE', 'GameApiController', 'deleteGame');
 

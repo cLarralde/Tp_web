@@ -25,6 +25,7 @@ class GameModel {
     function insertNewItem($logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $genero_fk) { //INSERTA UN NUEVO ITEM EN LA BD
         $query = $this->db->prepare('INSERT INTO `juegos`(`logo`, `nombre`, `fecha_lanzamiento`, `descripcion`, `valorizacion`, `peso`, `precio`, `fk_id_categoria`) VALUES (?,?,?,?,?,?,?,?)');
         $query->execute([$logo, $nombre, $fecha_lazamiento, $descripcion, $valorizacion, $peso, $precio, $genero_fk]);
+        return $this->db->lastInsertId();
     }
     
     function deleteItem($items_id) { //ELIMINA UN ITEM EN LA BASE DE BD

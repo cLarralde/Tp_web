@@ -3,12 +3,10 @@ require_once './models/gameModel.php';
 require_once './api/ApiController.php';
 require_once './api/APIView.php';
 
-class GameController extends ApiController {
+class GameApiController extends ApiController { //hereda todo del apicontroller que es el papi
   private $gameModel;
-  private $view;
-
   public function __construct() {
-    parent::__construct();
+    parent::__construct(); //Hereda el construct del padre
     $this->gameModel = new GameModel();
   }
 
@@ -39,7 +37,7 @@ class GameController extends ApiController {
     $genero_fk = $body->fk_id_categoria;
     $newGame = $this->gameModel->insertNewItem($logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
     if($newGame) {
-      $this->view->response($newGame, 200);
+      $this->view->response("Se ha creado un nuevo juego con la id=$newGame", 200);
     } else {
       $this->view->response("No se ha podido crear un nuevo juego", 500);
     }
@@ -49,7 +47,7 @@ class GameController extends ApiController {
     $gameId = $params[':ID'];
     $game = $this->gameModel->getItem($gameId); //Verificar primero si el juego con la id seleccionada existe
     if ($game) { //Si existe entonces...
-        $this->model->deleteItem($gameId);
+        $this->gameModel->deleteItem($gameId);
         $this->view->response(" El juego con la id = $gameId ha sido eliminado", 200);
     } else { // Si no existe...
         $this->view->response("No existe un juego con la id = $gameId", 404);
@@ -70,7 +68,7 @@ class GameController extends ApiController {
       $peso = $body->peso;
       $precio = $body->precio;
       $genero_fk = $body->fk_id_categoria;
-      $newGameEdit = $this->gameModel->editItem($gameId,$logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
+       $this->gameModel->editItem($gameId,$logo, $nombre, $fecha, $descripcion, $valorizacion, $peso, $precio, $genero_fk);
       $this->view->response("El juego con id=$gameId fue editado", 200);    
     } else {
       $this->view->response("No existe un juego con id=$gameId", 404);    
