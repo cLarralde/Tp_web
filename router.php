@@ -1,96 +1,74 @@
 <?php
-require_once './app/controllers/categoryController.php';
-require_once './app/controllers/gameController.php';
-require_once './app/controllers/UserController.php';
+class route {
+    private $url;
+    private $verb;
+    private $controller;
+    private $method;
+    private $params;
 
-define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-define('LOGIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/iniciarsesion');
-define('ADMIN', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/admin');
-define('HOME', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
-define('REGISTER', 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/registrarse');
-
-if (!empty($_GET['action'])) {
-  $action = $_GET['action'];
-} else {
-  $action = 'inicio'; 
+    public function __construct($url, $verb, $controller, $method){
+        $this->url = $url;
+        $this->verb = $verb;
+        $this->controller = $controller;
+        $this->method = $method;
+        $this->params = [];
+    }
+    public function match($url, $verb) {
+        if($this->verb != $verb){
+            return false;
+        }
+        $partsURL = explode("/", trim($url,'/'));
+        $partsRoute = explode("/", trim($this->url,'/'));
+        if(count($partsRoute) != count($partsURL)){
+            return false;
+        }
+        foreach ($partsRoute as $key => $part) {
+            if($part[0] != ":"){
+                if($part != $partsURL[$key])
+                return false;
+            } //es un parametro
+            else
+            $this->params[$part] = $partsURL[$key];
+        }
+        return true;
+    }
+    public function run(){
+        $controller = $this->controller;  
+        $method = $this->method;
+        $params = $this->params;
+       
+        (new $controller())->$method($params);
+    }
 }
 
-$params = explode('/', $action);
+class Router {
+    private $routeTable = [];
+    private $defaultRoute;
 
-$gameController = new gameController();
-$categoryController = new categoryController();
-$userController = new UserController();
-
-switch ($params[0]) {
-  case 'inicio':
-    $gameController->showHome();
-    break;
-
-  case 'categorias':
-    if (!isset($params[1])) { 
-      $categoryController->showCategoriesList();
-    } else if (isset($params[1])) {
-      $gameController->showCategoriesItems($params[1]); //Si apreta alguna categoria en especifico, te trae la funcion que trae todos los juegos que cuenten con esa categoria (Su id) que se pasa por GET.
+    public function __construct() {
+        $this->defaultRoute = null;
     }
-    break;
 
-  case 'game':
-    if (isset($params[1])) {
-      $gameController->showItem($params[1]);
+    public function route($url, $verb) {
+        //$ruta->url //no compila!
+        foreach ($this->routeTable as $route) {
+            if($route->match($url, $verb)){
+                //TODO: ejecutar el controller//ejecutar el controller
+                // pasarle los parametros
+                $route->run();
+                return;
+            }
+        }
+        //Si ninguna ruta coincide con el pedido y se configuró ruta por defecto.
+        if ($this->defaultRoute != null)
+            $this->defaultRoute->run();
     }
-    break;
-
-    case 'iniciarsesion': 
-    if(!isset($params[1])){ 
-     $userController->login();
+    
+    public function addRoute ($url, $verb, $controller, $method) {
+        $this->routeTable[] = new Route($url, $verb, $controller, $method);
     }
-    else if ($params[1]=='verificarLogin') {
-      $userController->login();
+
+    public function setDefaultRoute($controller, $method) {
+        $this->defaultRoute = new Route("", "", $controller, $method);
     }
-    break;
-
-  case 'registrarse': 
-    if(!isset($params[1])){
-    $userController->showRegister();
-    }
-    else if($params[1]=='verificarRegistro'){
-      $userController->verifyRegister();
-    }
-    break;
-
-    case 'admin':
-    $userController->showForms();
-    break;
-
-  case 'agregarCat':
-    $categoryController->insertcategoryBd();
-    break;
-
-  case 'agregarItem':
-    $gameController->insertItemBd();
-    break;
-
-  case 'eliminarItem':
-    $gameController->deleteItem();
-    break;
-
-  case 'editarItem':
-    $gameController->editItem();
-    break;
-
-  case 'editarCat':
-    $categoryController->editCat();
-    break;
-
-  case 'eliminarCat':
-    $categoryController->deleteCat();
-    break;
-
-  case 'cerrarsesion':
-    $userController->logout();
-  break;
-
-  default:
-  header('Location:' . HOME);
-    break;
 }
