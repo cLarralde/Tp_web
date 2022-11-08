@@ -6,6 +6,7 @@ define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_
 $router = new Router();
 
 $router->addRoute('juegos', 'GET', 'GameApiController', 'getGames');
+$router->addRoute('juegos/orden/:campo/:orden', 'GET', 'GameApiController', 'getGames'); //TODO: 🚐 Revisar es para el ordenar, puede ir el filtro tambien. pensar
 $router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
 $router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
 $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
