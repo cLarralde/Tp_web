@@ -1,5 +1,6 @@
 <?php
 require_once('router.php');
+require_once('./api/CategoryApiController.php');
 require_once('./api/GameApiController.php');
 define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/');
 
@@ -11,5 +12,11 @@ $router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
 $router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
 $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
 $router->addRoute('juegos/:ID', 'DELETE', 'GameApiController', 'deleteGame');
+
+$router->addRoute('categorias', 'GET', 'CategoryApiController', 'getCategories');
+$router->addRoute('categorias/:ID','GET','CategoryApiController','getCategory');
+$router->addRoute('categorias/:ID', 'DELETE', 'CategoryApiController', 'deleteCat');
+$router->addRoute('categorias', 'POST', 'CategoryApiController', 'insertCat');
+$router->addRoute('categorias/:ID', 'PUT', 'CategoryApiController', 'editCat');
 
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
