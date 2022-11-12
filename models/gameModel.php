@@ -8,8 +8,14 @@ class GameModel {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=gameroom;charset=utf8', 'root', '');
     }
 
-    public function getItems() { //SELECCIONA TODOS LOS ITEMS
-        $query = $this->db->prepare('SELECT * FROM juegos AS g');
+    public function getItemsOrder($field,$order) { //SELECCIONA TODOS LOS ITEMS
+        $query = $this->db->prepare('SELECT * FROM juegos ORDER BY '.$field.' '.$order.''); //Revisar Belen o Lucho
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ); 
+    }
+
+    public function getItems() { 
+        $query = $this->db->prepare('SELECT * FROM juegos');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ); 
     }
