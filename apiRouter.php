@@ -15,6 +15,8 @@ $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
 $router->addRoute('juegos/:ID', 'DELETE', 'GameApiController', 'deleteGame');
 
 $router->addRoute('categorias', 'GET', 'CategoryApiController', 'getCategories');
+$router->addRoute('categorias/orden/:FIELD', 'GET', 'CategoryApiController', 'getCategories'); 
+$router->addRoute('categorias/orden/:FIELD/:ORDER', 'GET', 'CategoryApiController', 'getCategories');
 $router->addRoute('categorias/:ID','GET','CategoryApiController','getCategory');
 $router->addRoute('categorias/:ID', 'DELETE', 'CategoryApiController', 'deleteCat');
 $router->addRoute('categorias', 'POST', 'CategoryApiController', 'insertCat');
