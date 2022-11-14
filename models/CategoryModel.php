@@ -10,6 +10,16 @@ class CategoryModel {
     $query->execute();
     return $query->fetchAll(PDO::FETCH_OBJ); 
    }
+   public function getCategoriesFieldValue($field,$value){
+    $query = $this->db->prepare("SELECT * FROM `categorias` WHERE nombre LIKE ?");
+    $query->execute([$value]);
+    return $query->fetch(PDO::FETCH_OBJ);
+   }
+   public function pagesCat($start_from,$page_size){
+    $query = $this->db->prepare("SELECT * FROM `categorias` LIMIT $start_from , $page_size");
+    $query->execute();
+    return $query->fetchAll(PDO:: FETCH_OBJ);
+  }
    public function getCategories() { //SELECCIONA TODAS LAS CATEGORIAS
         $query = $this->db->prepare('SELECT * FROM categorias');
         $query->execute();
