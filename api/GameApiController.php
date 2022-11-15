@@ -14,8 +14,8 @@ class GameApiController extends ApiController
 
   function getGames($params = [])
   {
-    $url = explode('/', $_GET['resource']); //Necesitaba parsear la url porque sino me tomaba todo como string
-    if (isset($url[1])) {
+    $url = explode('/', $_GET['resource']); //Necesitaba parsear la url para identificar que la persona haya puesto el /orden/
+    if (isset($url[1])) { // probar, estaba la url
       if (isset($params[':FIELD'])) {
         $fieldOrder = $params[':FIELD'];
       } else {
