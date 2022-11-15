@@ -3,19 +3,17 @@ require_once './models/gameModel.php';
 require_once './api/ApiController.php';
 require_once './api/APIView.php';
 
-class GameApiController extends ApiController
-{ //hereda todo del apicontroller que es el papi
+class GameApiController extends ApiController { //hereda todo del apicontroller que es el papi
   private $gameModel;
   public function __construct()
   {
     parent::__construct(); //Hereda el construct del padre
     $this->gameModel = new GameModel();
   }
-
   function getGames($params = [])
   {
-    $url = explode('/', $_GET['resource']); //Necesitaba parsear la url para identificar que la persona haya puesto el /orden/
-    if (isset($url[1])) { // probar, estaba la url
+    $url = explode('/', $_GET['resource']); //Necesitaba parsear la url porque sino me tomaba todo como string
+    if (isset($url[1])) {
       if (isset($params[':FIELD'])) {
         $fieldOrder = $params[':FIELD'];
       } else {
@@ -26,7 +24,7 @@ class GameApiController extends ApiController
       } else {
         $order = 'ASC';
       }
-      switch ($fieldOrder) {
+      switch ($fieldOrder) { 
         case 'id':
           $games = $this->gameModel->getItemsOrder($fieldOrder, $order);
           return $this->view->response($games, 200);
