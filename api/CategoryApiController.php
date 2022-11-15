@@ -25,8 +25,7 @@ class CategoryApiController extends ApiController
         $order = 'ASC';
       }
       $categories = $this->categoryModel->getCategories();
-      $categoria = $categories[1]->$fieldOrder;
-      if ($categoria) {
+      if (isset($categories[1]->$fieldOrder)) {
         $categories = $this->categoryModel->getCategoriesOrder($fieldOrder, $order);
         return $this->view->response($categories, 200);
       } else {
