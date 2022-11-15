@@ -1,18 +1,16 @@
 <?php
-require_once './helper/SecurityHelper.php';
-require_once './api/APIView.php';
+require_once './api/apiController.php';
+
 function base64url_encode($data) {
     return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
 }
 class AuthApiController extends ApiController {
-    private $authHelper;
     public function __construct() {
         parent::__construct();
-        $this->authHelper = new SecurityHelper();
     }
     public function getToken() {
         // Obtener "Basic base64(user:pass)
-        $basic = $this->authHelper->getAuthHeader();
+        $basic = $this->secHelper->getAuthHeader();
         
         if(empty($basic)){
             $this->view->response('No autorizado', 401);

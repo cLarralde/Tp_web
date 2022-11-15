@@ -13,9 +13,9 @@ $router->addRoute('juegos/orden/:FIELD', 'GET', 'GameApiController', 'getGames')
 $router->addRoute('juegos/orden/:FIELD/:ORDER', 'GET', 'GameApiController', 'getGames'); //TODO: 🚐 Revisar es para el ordenar, puede ir el filtro tambien. pensar
 $router->addRoute('juegos/page/:PAGENUMBER', 'GET', 'GameApiController', 'getPaginatedGames');
 $router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
+$router->addRoute('juegos/filter/:FIELD/:VALUE','GET','GameApiController', 'getFilterGames');
 $router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
 $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
-$router->addRoute('juegos/:ID', 'DELETE', 'GameApiController', 'deleteGame');
 
 $router->addRoute('categorias', 'GET', 'CategoryApiController', 'getCategories');
 $router->addRoute('categorias/page/:ID', 'GET', 'CategoryApiController', 'getPaginatedCat');
@@ -23,7 +23,6 @@ $router->addRoute('categorias/orden/:FIELD', 'GET', 'CategoryApiController', 'ge
 $router->addRoute('categorias/orden/:FIELD/:ORDER', 'GET', 'CategoryApiController', 'getCategories');
 $router->addRoute('categorias/filter/:FIELD/:VALUE','GET','CategoryApiController','getCategoryFilter');
 $router->addRoute('categorias/:ID','GET','CategoryApiController','getCategory');
-$router->addRoute('categorias/:ID', 'DELETE', 'CategoryApiController', 'deleteCat');
 $router->addRoute('categorias', 'POST', 'CategoryApiController', 'insertCat');
 $router->addRoute('categorias/:ID', 'PUT', 'CategoryApiController', 'editCat');
 

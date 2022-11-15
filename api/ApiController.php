@@ -1,5 +1,6 @@
 <?php
 require_once './helper/SecurityHelper.php';
+require_once './api/APIView.php';
 abstract class ApiController {
     protected $view;
     protected $secHelper;

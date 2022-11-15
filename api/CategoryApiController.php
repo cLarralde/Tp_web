@@ -1,7 +1,6 @@
 <?php
 require_once './models/CategoryModel.php';
-require_once './api/ApiController.php';
-require_once './api/APIView.php';
+require_once './api/apiController.php';
 class CategoryApiController extends ApiController
 {
   private $categoryModel;
