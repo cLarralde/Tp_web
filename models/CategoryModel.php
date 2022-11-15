@@ -11,8 +11,8 @@ class CategoryModel {
     return $query->fetchAll(PDO::FETCH_OBJ); 
    }
    public function getCategoriesFieldValue($field,$value){
-    $query = $this->db->prepare("SELECT * FROM `categorias` WHERE nombre LIKE ?");
-    $query->execute([$value]);
+    $query = $this->db->prepare("SELECT * FROM `categorias` WHERE ? LIKE ?");
+    $query->execute([$field,$value]);
     return $query->fetch(PDO::FETCH_OBJ);
    }
    public function pagesCat($start_from,$page_size){
@@ -40,10 +40,5 @@ class CategoryModel {
         $query = $this->db->prepare("UPDATE `categorias` SET nombre=? , descripcionCat=? WHERE id=?");
         $query->execute([$catName, $catDescription, $catId]);
        
-    }
-   public function getItemsFk_id($id) {
-        $query = $this->db->prepare('SELECT * FROM juegos as j WHERE j.fk_id_categoria=?');
-        $query->execute([$id]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }
