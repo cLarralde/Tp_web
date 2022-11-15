@@ -11,8 +11,9 @@ class CategoryApiController extends ApiController
     $this->categoryModel = new CategoryModel();
   }
   public function getCategories($params = [])
-  {
+  {  
     $url = explode('/', $_GET['resource']); //Necesitaba parsear la url porque sino me tomaba todo como string
+  
     if (isset($url[1])) { //orden
       if (isset($params[':FIELD'])) {
         $fieldOrder = $params[':FIELD'];
@@ -94,7 +95,7 @@ class CategoryApiController extends ApiController
   {
     $pageNumber = intval($params[":ID"]);
     $categories = $this->categoryModel->getCategories();
-    $number_rows = count($categories);
+    $number_rows = count($categories);//6 
     $page_size = 2; //quiero que se muestren 3 items por page
     $start_from = ($pageNumber - 1) * $page_size; //cuenta para saber desde que pagina comenzar
     $total_pages = ceil($number_rows / $page_size); //un total de 6 paginas
