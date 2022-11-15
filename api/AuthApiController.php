@@ -30,7 +30,7 @@ class AuthApiController extends ApiController {
         $user = $userpass[0];
         $pass = $userpass[1];
         
-        if($user == "Nico" && $pass == "web"){
+        if($user == "Admin" && $pass == "web"){
             //  crear un token
             $header = array(
                 'alg' => 'HS256',
@@ -38,7 +38,7 @@ class AuthApiController extends ApiController {
             );
             $payload = array(
                 'id' => 1,
-                'name' => "Nico",
+                'name' => "Admin",
                 'exp' => time()+3600
             );
             $header = base64url_encode(json_encode($header));

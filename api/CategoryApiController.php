@@ -69,7 +69,7 @@ class CategoryApiController extends ApiController
       $categoria_id = $this->categoryModel->insertNewCategory($nombre, $descripcion);
       $categoriaNueva = $this->categoryModel->getCat($categoria_id);
       if ($categoriaNueva) {
-        $this->view->response($categoriaNueva, 200);
+        $this->view->response($categoriaNueva, 201);
       } else
         $this->view->response("la categoria no fue creada", 500);
     }else{
@@ -85,7 +85,7 @@ class CategoryApiController extends ApiController
       $nombre = $body->nombre;
       $descripcion = $body->descripcion;
       $this->categoryModel->editCategory($id, $nombre, $descripcion);
-      $this->view->response("La categoria fue modificada con exito.", 200);
+      $this->view->response("La categoria fue modificada con exito.", 201);
     } else {
       $this->view->response("La categoria con el id={$id} no existe", 404);
     }

@@ -8,10 +8,12 @@ define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_
 $router = new Router();
 
 $router->addRoute('juegos', 'GET', 'GameApiController', 'getGames');
+$router->addRoute('juegos/orden', 'GET', 'GameApiController', 'getGames'); 
 $router->addRoute('juegos/orden/:FIELD', 'GET', 'GameApiController', 'getGames'); //TODO: 🚐 Revisar es para el ordenar, puede ir el filtro tambien. pensar
 $router->addRoute('juegos/orden/:FIELD/:ORDER', 'GET', 'GameApiController', 'getGames'); //TODO: 🚐 Revisar es para el ordenar, puede ir el filtro tambien. pensar
-$router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
+$router->addRoute('juegos/page/:PAGENUMBER', 'GET', 'GameApiController', 'getPaginatedGames');
 $router->addRoute('juegos/:ID', 'GET', 'GameApiController', 'getGame');
+$router->addRoute('juegos', 'POST', 'GameApiController', 'newGame');
 $router->addRoute('juegos/:ID', 'PUT', 'GameApiController', 'editGame');
 $router->addRoute('juegos/:ID', 'DELETE', 'GameApiController', 'deleteGame');
 
@@ -25,5 +27,5 @@ $router->addRoute('categorias/:ID', 'DELETE', 'CategoryApiController', 'deleteCa
 $router->addRoute('categorias', 'POST', 'CategoryApiController', 'insertCat');
 $router->addRoute('categorias/:ID', 'PUT', 'CategoryApiController', 'editCat');
 
-$router->addRoute("auth/token/", 'GET', 'AuthApiController', 'getToken');
+$router->addRoute("auth/token", 'GET', 'AuthApiController', 'getToken');
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
