@@ -96,7 +96,7 @@ class CategoryApiController extends ApiController
   }
   }
   public function getPaginatedCat($params = []) {
-    $pageNumber = intval($params[':ID']);
+    $pageNumber = intval($params[':PAGENUMBER']);
     $categories = $this->categoryModel->getCategories();
     $number_rows = count($categories); //6 
     $page_size = 2; //quiero que se muestren 3 items por page
