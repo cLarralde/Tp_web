@@ -13,7 +13,7 @@ class CategoryApiController extends ApiController
 
     if (isset($url[1])) { //orden
       if (isset($params[':FIELD'])) {
-        $fieldOrder = $params[':FIELD'];
+        $fieldOrder = filter_var($params[':FIELD']);
       } else {
         $fieldOrder = 'id'; //Si no esta seteado 
       }
@@ -27,7 +27,7 @@ class CategoryApiController extends ApiController
         $categories = $this->categoryModel->getCategoriesOrder($fieldOrder, $order);
         return $this->view->response($categories, 200);
       } else {
-        return $this->view->response("no existe el campo a ordenar $fieldOrder", 404);
+        return $this->view->response("No existe el campo a ordenar $fieldOrder", 404);
       }
     } else {
       $categories = $this->categoryModel->getCategories();
@@ -38,12 +38,18 @@ class CategoryApiController extends ApiController
     if (isset($params[':FIELD']) && ($params[':VALUE'])) {
       $field = $params[':FIELD'];
       $value = $params[':VALUE'];
-      $fieldValue = $this->categoryModel->getCategoriesFieldValue($field, $value);
-      if ($fieldValue) {
-        $this->view->response($fieldValue, 200);
+      $categories = $this->categoryModel->getCategories();
+      if ($categories[1]->$field) {
+        if (!empty(($fieldValue = $this->categoryModel->getCategoriesFieldValue($field, $value)))) {
+          $this->view->response($fieldValue, 200);
+        } else {
+          $this->view->response("No se encontro el campo $field con el valor $value", 404);
+        }
       } else {
-        $this->view->response("no existe el campo=$field con el valor=$value", 404);
+        $this->view->response("No se encontro el campo = $field", 404);
       }
+    } else {
+      $this->view->response("No se establecieron los valores de campo y valor", 404);
     }
   }
   public function getCategory($params = []) {
@@ -52,61 +58,61 @@ class CategoryApiController extends ApiController
     if ($category) {
       $this->view->response($category, 200);
     } else {
-      $this->view->response("la categoria con el id={$id} no existe", 404);
+      $this->view->response("La categoria con el id={$id} no existe", 404);
     }
   }
   public function insertCat() {
     if ($this->secHelper->isLoggedIn()) {
-      $categoria = $this->getData();
-      if (!empty($categoria->nombre) && !empty($categoria->descripcion)) {
-        $nombre = $categoria->nombre;
-        $descripcion = $categoria->descripcion;
+      $body = $this->getData();
+      if (!empty($body->nombre) && !empty($body->descripcion)) {
+        $nombre = $body->nombre;
+        $descripcion = $body->descripcion;
         $categoria_id = $this->categoryModel->insertNewCategory($nombre, $descripcion);
         $categoriaNueva = $this->categoryModel->getCat($categoria_id);
         if ($categoriaNueva) {
-          $this->view->response("sea creado la categoria=$categoriaNueva", 201);
-        }else{
-          $this->view->response("la categoria no fue creada",400);
+          $this->view->response("Sea creado la categoria=$categoriaNueva", 201);
+        } else {
+          $this->view->response("La categoria no fue creada", 400);
         }
       } else
-        $this->view->response("la categoria no fue creada por que faltan campos por completar", 500);
+        $this->view->response("La categoria no fue creada por que faltan campos por completar", 500);
     } else {
-      $this->view->response("no estas logueado 😁", 401);
+      $this->view->response("No estas logueado", 401);
     }
   }
-  public function editCat($params = null) { 
+  public function editCat($params = null) {
     if ($this->secHelper->isLoggedIn()) {
-    $id = $params[':ID'];
-    $catagoria = $this->categoryModel->getCat($id);
-    if ($catagoria) {
-      $body = $this->getData();
-      if(!empty($body->nombre)&&!empty($body->descripcion)){
-      $nombre = $body->nombre;
-      $descripcion = $body->descripcion;
-      $this->categoryModel->editCategory($id, $nombre, $descripcion);
-      $this->view->response("La categoria fue modificada con exito.", 201);
-      }else{
-        $this->view->response("la categoria={$id} no fue modificada por que faltan campos por completar",400);
+      $id = $params[':ID'];
+      $catagoria = $this->categoryModel->getCat($id);
+      if ($catagoria) {
+        $body = $this->getData();
+        if (!empty($body->nombre) && !empty($body->descripcion)) {
+          $nombre = $body->nombre;
+          $descripcion = $body->descripcion;
+          $this->categoryModel->editCategory($id, $nombre, $descripcion);
+          $this->view->response("La categoria fue modificada con exito.", 201);
+        } else {
+          $this->view->response("La categoria={$id} no fue modificada por que faltan campos por completar", 400);
+        }
+      } else {
+        $this->view->response("La categoria con el id={$id} no existe", 404);
       }
     } else {
-      $this->view->response("La categoria con el id={$id} no existe", 404);
+      $this->view->response("No estas logueado ", 401);
     }
-  }else {
-    $this->view->response("no estas logueado 😁", 401);
-  }
   }
   public function getPaginatedCat($params = []) {
     $pageNumber = intval($params[':PAGENUMBER']);
     $categories = $this->categoryModel->getCategories();
-    $number_rows = count($categories); //6 
-    $page_size = 2; //quiero que se muestren 3 items por page
-    $start_from = ($pageNumber - 1) * $page_size; //cuenta para saber desde que pagina comenzar
-    $total_pages = ceil($number_rows / $page_size); //un total de 6 paginas
-    if (is_numeric($pageNumber) && $pageNumber > 0 && $pageNumber <= $total_pages) {
-      $page = $this->categoryModel->pagesCat($start_from, $page_size);
+    $numberRows = count($categories); //6 
+    $pageSize = 2; //quiero que se muestren 3 items por page
+    $startFrom = ($pageNumber - 1) * $pageSize; //cuenta para saber desde que pagina comenzar
+    $totalPages = ceil($numberRows / $pageSize); //un total de 6 paginas
+    if (is_numeric($pageNumber) && $pageNumber > 0 && $pageNumber <= $totalPages) {
+      $page = $this->categoryModel->pagesCat($startFrom, $pageSize);
       $this->view->response($page, 200);
     } else {
-      $this->view->response("la pagina no existe", 404);
+      $this->view->response("La pagina no existe", 404);
     }
   }
 }

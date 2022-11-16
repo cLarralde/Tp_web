@@ -11,8 +11,8 @@ class CategoryModel {
     return $query->fetchAll(PDO::FETCH_OBJ); 
    }
    public function getCategoriesFieldValue($field,$value){
-    $query = $this->db->prepare("SELECT * FROM `categorias` WHERE ? LIKE ?");
-    $query->execute([$field,$value]);
+    $query = $this->db->prepare('SELECT * FROM `categorias` WHERE ' .$field. ' = ?');
+    $query->execute([$value]);
     return $query->fetch(PDO::FETCH_OBJ);
    }
    public function pagesCat($start_from,$page_size){

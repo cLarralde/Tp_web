@@ -1,7 +1,7 @@
 <?php
 class SecurityHelper
 {
-    function getToken(){
+    function getToken() {
         $auth = $this->getAuthHeader(); // Bearer header.payload.signature
         $auth = explode(" ", $auth);
         if($auth[0]!="Bearer" || count($auth) != 2){
@@ -32,7 +32,7 @@ class SecurityHelper
             return false;
     }
 
-    function getAuthHeader(){
+    function getAuthHeader() {
         $header = ""; 
         if(isset($_SERVER['HTTP_AUTHORIZATION']))
             $header = $_SERVER['HTTP_AUTHORIZATION'];
@@ -40,5 +40,4 @@ class SecurityHelper
             $header = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
         return $header;
     }
- 
 }
