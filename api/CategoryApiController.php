@@ -34,10 +34,11 @@ class CategoryApiController extends ApiController
       return $this->view->response($categories, 200);
     }
   }
+  
   public function getCategoryFilter($params = []) {
     if (isset($params[':FIELD']) && ($params[':VALUE'])) {
       $field = $params[':FIELD'];
-      $value = $params[':VALUE'];
+      $value = $params[':VALUE']; 
       $categories = $this->categoryModel->getCategories();
       if ($categories[1]->$field) {
         $fieldValue = $this->categoryModel->getCategoriesFieldValue($field, $value);
