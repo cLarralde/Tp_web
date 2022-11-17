@@ -11,6 +11,7 @@ abstract class ApiController {
         $this->data = file_get_contents("php://input"); 
         $this->secHelper = new SecurityHelper();
     }
+    
     function getData() { 
         return json_decode($this->data); 
     }  

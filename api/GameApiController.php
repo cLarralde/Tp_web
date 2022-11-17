@@ -1,6 +1,9 @@
 <?php
 require_once './models/gameModel.php';
 require_once './api/apiController.php';
+//TODO: Arreglar sintaxis y asegurarse que todo este andando bien
+//TODO: Verificar los code status que esten correctos.
+//TODO: ARREGLAR EL README PARA QUE SEA MAS DECENTE.
 class GameApiController extends ApiController
 { //hereda todo del apicontroller que es el papi
   private $gameModel;
@@ -9,31 +12,31 @@ class GameApiController extends ApiController
     parent::__construct(); //Hereda el construct del padre
     $this->gameModel = new GameModel();
   }
-  function getGames($params = [])
+
+  function getOrderGames($params = [])
   {
-    $url = explode('/', $_GET['resource']); //Necesitaba parsear la url porque sino me tomaba todo como string
-    if (isset($url[1])) {
-      if (isset($params[':FIELD'])) {
-        $fieldOrder = $params[':FIELD'];
-      } else {
-        $fieldOrder = 'nombre'; //Si no esta seteado 
-      }
-      if (isset($params[':ORDER'])) {
-        $order = 'DESC'; //Si existe el param order automaticamente se setea en desc
-      } else {
-        $order = 'ASC'; //Si no existe el param order se setea en ASC (Ya que es el por defecto del ORDER BY)
-      }
-      $games = $this->gameModel->getGames();
-      if (isset($games[1]->$fieldOrder)) {
-        $games = $this->gameModel->getOrderGames($fieldOrder, $order);
-        return $this->view->response($games, 200);
-      } else {
-        return $this->view->response("no existe el campo designado para ordenar $fieldOrder en la tabla de Juegos", 404);
-      }
-    } else { //Si la persona solo escribió juegos/ osea, no existe el orden, te trae los juegos sin ordenar.
-      $games = $this->gameModel->getGames();
-      return $this->view->response($games, 200);
+    if (isset($params[':FIELD'])) {
+      $fieldOrder = $params[':FIELD'];
+    } else {
+      $fieldOrder = 'nombre'; //Si no esta seteado 
     }
+    if (isset($params[':ORDER'])) {
+      $order = 'DESC'; //Si existe el param order automaticamente se setea en desc
+    } else {
+      $order = 'ASC'; //Si no existe el param order se setea en ASC (Ya que es el por defecto del ORDER BY)
+    }
+    $games = $this->gameModel->getGames();
+    if (isset($games[1]->$fieldOrder)) {
+      $games = $this->gameModel->getOrderGames($fieldOrder, $order);
+      return $this->view->response($games, 200);
+    } else {
+      return $this->view->response("no existe el campo designado para ordenar $fieldOrder en la tabla de Juegos", 404);
+    }
+  }
+  function getGames()
+  {
+    $games = $this->gameModel->getGames();
+    return $this->view->response($games, 200);
   }
 
   function getPaginatedGames($params = [])
@@ -44,7 +47,7 @@ class GameApiController extends ApiController
     $gamesPerPage = 4; //quiero que se muestren 4 items por page
     $start = ($pageNumber - 1) * $gamesPerPage; //cuenta para saber desde que pagina comenzar
     $totalPages = ceil($totalGames / $gamesPerPage); //un total de 6 paginas
-    if (is_numeric($pageNumber) && $pageNumber > 0 && $pageNumber <= $totalPages) {
+    if ($pageNumber > 0 && $pageNumber <= $totalPages) {
       $page = $this->gameModel->pagesGames($start, $gamesPerPage);
       $this->view->response($page, 200);
     } else {
@@ -59,7 +62,8 @@ class GameApiController extends ApiController
       $value = $params[':VALUE'];
       $games = $this->gameModel->getGames();
       if (isset($games[1]->$field)) {
-        if (!empty($filterGames = $this->gameModel->getFilterGames($field, $value))) {
+        $filterGames = $this->gameModel->getFilterGames($field, $value);
+        if (!empty($filterGames)) {
           $this->view->response($filterGames, 200);
         } else {
           $this->view->response("No existe ningun juego que tenga el valor $value en el campo especificado", 404);

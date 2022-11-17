@@ -20,12 +20,12 @@ El endpoint de la API es: http://localhost/tucarpetalocal/Tp_web/api/juegos para
 - http://localhost/tucarpetalocal/Tp_web/api/juegos/orden 
     y
   http://localhost/tucarpetalocal/Tp_web/api/categorias/orden
-    Estos endpoints te llevan a la función getGames  o getCategories dependiendo de a que tabla se refiera, en ambos casos como esta seteado "/orden" te trae los items con un orden ya establecido en el código. 
+    Estos endpoints te llevan a la función getOrderGames  o getOrderCategories dependiendo de a que tabla se refiera, en ambos casos como esta seteado "/orden" te trae los items con un orden ya establecido en el código. 
 
 - http://localhost/tucarpetalocal/Tp_web/api/juegos/orden/:FIELD
     y
   http://localhost/tucarpetalocal/Tp_web/api/categorias/orden/:FIELD
-    Estos endpoint te llevan a la función getGames en el caso de juegos o a la función getCategories en el caso de Categorias, como esta seteado "/orden" te trae los items ordenados y como esta seteado ":FIELD" ordena los items con el campo seleccionado en la URI (En caso de poner un campo que no exista en la tabla te va a tirar el respectivo error) y en orden Ascendente (Ya establecido en el código). 
+    Estos endpoint te llevan a la función getOrderGames en el caso de juegos o a la función getOrderCategories en el caso de Categorias, como esta seteado "/orden" te trae los items ordenados y como esta seteado ":FIELD" ordena los items con el campo seleccionado en la URI (En caso de poner un campo que no exista en la tabla te va a tirar el respectivo error) y en orden Ascendente (Ya establecido en el código). 
         *Ejemplo del endpoint: 
             http://localhost/tucarpetalocal/Tp_web/api/juegos/orden/nombre
             y
@@ -34,7 +34,7 @@ El endpoint de la API es: http://localhost/tucarpetalocal/Tp_web/api/juegos para
 - http://localhost/tucarpetalocal/Tp_web/api/juegos/orden/:FIELD/:ORDER
     y
   http://localhost/tucarpetalocal/Tp_web/api/categorias/orden/:FIELD/:ORDER
-    Estos endpoint te llevan a la función getGames en el caso de juegos o a la función getCategories en el caso de Categorias, como esta seteado "/orden" te trae los items ordenados y como esta seteado ":FIELD" ordena los items con el campo seleccionado en la URI (En caso de poner un campo que no exista en la tabla te va a tirar el respectivo error) y como esta seteado ":ORDER" te ordena los items Descendientemente (Ya que por defecto siempre va a ser Ascendente). 
+    Estos endpoint te llevan a la función getOrderGames en el caso de juegos o a la función getOrderCategories en el caso de Categorias, como esta seteado "/orden" te trae los items ordenados y como esta seteado ":FIELD" ordena los items con el campo seleccionado en la URI (En caso de poner un campo que no exista en la tabla te va a tirar el respectivo error) y como esta seteado ":ORDER" te ordena los items Descendientemente (Ya que por defecto siempre va a ser Ascendente). 
         *Ejemplo del endpoint: 
             http://localhost/tucarpetalocal/Tp_web/api/juegos/orden/nombre/si
              y
@@ -62,7 +62,7 @@ El endpoint de la API es: http://localhost/tucarpetalocal/Tp_web/api/juegos para
 - http://localhost/tucarpetalocal/Tp_web/api/juegos/filter/:FIELD/:VALUE
   y 
   http://localhost/tucarpetalocal/Tp_web/api/categorias/filter/:FIELD/:VALUE
-    Este endpoint te lleva a la función getFilterGames en el caso de la tabla de juegos o a la función getCategoryFilter en el caso de la tabla de categorias. En ambos casos las funciones te traen el/los items que coincidan con el campo y el valor establecidos en la URI.
+    Este endpoint te lleva a la función getFilterGames en el caso de la tabla de juegos o a la función getFilterCategories en el caso de la tabla de categorias. En ambos casos las funciones te traen el/los items que coincidan con el campo y el valor establecidos en la URI.
         *Ejemplo del endpoint: 
             http://localhost/tucarpetalocal/Tp_web/api/juegos/filter/fk_id_categoria/2
             y
