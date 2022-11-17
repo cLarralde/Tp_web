@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2022 a las 04:17:26
+-- Tiempo de generación: 17-11-2022 a las 21:16:00
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -43,7 +43,11 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcionCat`) VALUES
 (1, 'Accion', 'Los videojuegos de acción son aquellos en el que el jugador debe usar su velocidad, destreza y tiempo de reacción'),
 (2, 'Supervivencia', 'Los videojuegos de supervivencia son aquellos ambientados en un ambiente hostil, intenso y de mundo abierto, donde los jugadores generalmente comienzan con equipos mínimos y se les exige que recolecten recursos, herramientas de artesanía, armas y refugio, y sobrevivan el mayor tiempo posible. '),
 (3, 'Estrategia', 'Los videojuegos de estrategia son videojuegos que requieren que el jugador ponga en práctica sus habilidades de planeamiento y pensamiento para conseguir la victoria. '),
-(4, 'Carreras', 'Los videojuegos de carreras son aquellos que se basan en las competencias de velocidad entre vehículos o personajes. ');
+(4, 'Carreras', 'Los videojuegos de carreras son aquellos que se basan en las competencias de velocidad entre vehículos o personajes. '),
+(15, 'Suspenso', 'Videojuegos cuyo objetivo principal es generarte una sensacion de ansiedad e inquietud mientras se los juega'),
+(16, 'Terror', '¡Videojuegos no apto para personas asustadizas!'),
+(17, 'Plataformas', '¡Videojuegos sobre escalar, correr, caminar o saltar sobre una serie de plataformas mientras se te atraviesan diferentes obstaculos!'),
+(18, 'Visual Novel', 'Videojuegos que se basan en la lectura de una historia en donde (a veces) se pueden decidir diferentes opciones y esas opciones repercuten a futuro');
 
 -- --------------------------------------------------------
 
@@ -84,7 +88,8 @@ INSERT INTO `juegos` (`id`, `logo`, `nombre`, `fecha_lanzamiento`, `descripcion`
 (18, 'https://i.ibb.co/hd1HfLv/DIRT-LOGO.jpg', 'DiRT Rally 2.0', ' 25 FEB 2019', ' 100 GB', '84', '100 GB', 'ARS$ 279,99', 4),
 (19, 'https://i.ibb.co/k8cjNnn/FH5-LOGO.jpg', 'Forza Horizon 5', ' 9 NOV 2021', '¡La aventura Horizon definitiva te espera! Explora los vibrantes paisajes de mundo abierto en constante evolución situado en México, y disfruta de una acción de conducción ilimitada y divertida con cientos de los mejores coches del mundo.', '84', ' 110 GB', 'ARS$ 3.599,00', 4),
 (20, 'https://i.ibb.co/qWhgQrZ/NSF-LOGO.jpg', 'Need for Speed™ Hot Pursuit Remastered', ' 6 NOV 2020', 'Siente la emoción de la persecución y la adrenalina de escapar sobre ruedas con los coches de mayor rendimiento del mundo en Need for Speed™ Hot Pursuit Remastered, un juego de carreras trepidante y competitivo.', '74', ' 45 GB', 'ARS$ 1.799,00', 4),
-(21, 'https://i.ibb.co/fDT8WGC/TWWH-LOGO.jpg', 'Total War: WARHAMMER III', ' 17 FEB 2022', 'El final cataclísmico de la trilogía de Total War™: WARHAMMER® ha llegado. Reagrupa a tus fuerzas y adéntrate en el Reino del Caos, una dimensión de terrores horripilantes en la que se decidirá el destino del mundo. ¿Conquistarás a tus demonios... o los dirigirás?', '86', ' 120 GB', 'ARS$ 3.920,99', 3);
+(21, 'https://i.ibb.co/fDT8WGC/TWWH-LOGO.jpg', 'Total War: WARHAMMER III', ' 17 FEB 2022', 'El final cataclísmico de la trilogía de Total War™: WARHAMMER® ha llegado. Reagrupa a tus fuerzas y adéntrate en el Reino del Caos, una dimensión de terrores horripilantes en la que se decidirá el destino del mundo. ¿Conquistarás a tus demonios... o los dirigirás?', '86', ' 120 GB', 'ARS$ 3.920,99', 3),
+(67, 'https://upload.wikimedia.org/wikipedia/en/5/57/Dead_Space_Box_Art.jpg', 'Dead Space', ' 14 OCT 2008', 'Isaac Clarke es un ingeniero que recibio de su esposa desaparecida un misterioso video pidiendole auxilio, por lo tanto, se embarca dentro de la estacion USG Ishimura sin saber los terrores que alberga dentro', '100', ' 4 GB', 'ARS$ 800', 16);
 
 -- --------------------------------------------------------
 
@@ -136,13 +141,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

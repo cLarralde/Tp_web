@@ -13,7 +13,7 @@ class CategoryApiController extends ApiController {
     if (isset($params[':FIELD'])) {
       $fieldOrder = $params[':FIELD'];
     } else {
-      $fieldOrder = 'id'; //Si no esta seteado 
+      $fieldOrder = 'id'; 
     }
     if (isset($params[':ORDER'])) {
       $order = 'DESC';
@@ -118,9 +118,9 @@ class CategoryApiController extends ApiController {
     $pageNumber = intval($params[':PAGENUMBER']);
     $categories = $this->categoryModel->getCategories();
     $numberRows = count($categories); //6 
-    $pageSize = 2; //quiero que se muestren 3 items por page
-    $startFrom = ($pageNumber - 1) * $pageSize; //cuenta para saber desde que pagina comenzar
-    $totalPages = ceil($numberRows / $pageSize); //un total de 6 paginas
+    $pageSize = 2; 
+    $startFrom = ($pageNumber - 1) * $pageSize; 
+    $totalPages = ceil($numberRows / $pageSize);
     if ($pageNumber > 0 && $pageNumber <= $totalPages) {
       $paginatedCategories = $this->categoryModel->getPaginatedCat($startFrom, $pageSize);
       $this->view->response($paginatedCategories, 200);
