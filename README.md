@@ -9,6 +9,39 @@ Una API REST creada sobre la misma base de datos que la primera entrega del TPE,
 ## 2)Pruebas con postman
 El endpoint de la API es: http://localhost/tucarpetalocal/Tp_web/api/juegos para la tabla de Juegos y http://localhost/tucarpetalocal/Tp_web/api/categorias para la tabla de Categorias.
 
+# Bodys (Necesarios para post y put):
+## Juegos:
+-  {
+        "logo": "x",
+        "nombre": "x",
+        "fecha_lanzamiento": " x",
+        "descripcion": "x",
+        "valorizacion": "x",
+        "peso": " x",
+        "precio": "x",
+        "fk_id_categoria": x
+    }
+      ### ejemplo:
+        - {
+        "logo": "https://upload.wikimedia.org/wikipedia/en/5/57/Dead_Space_Box_Art.jpg",
+        "nombre": "Dead Space",
+        "fecha_lanzamiento": " 14 OCT 2008",
+        "descripcion": "Isaac Clarke es un ingeniero que recibio de su esposa desaparecida un misterioso video pidiendole auxilio, por lo tanto, se embarca dentro de la estacion USG Ishimura sin saber los terrores que alberga dentro",
+        "valorizacion": "100",
+        "peso": " 4 GB",
+        "precio": "ARS$ 800",
+        "fk_id_categoria": 16
+    }
+    ## Categorias:
+-  {
+    "nombre": "x",
+    "descripcionCat": "xx"
+  }
+      ### ejemplo:
+  - {
+    "nombre": "Visual Novel",
+    "descripcionCat": "Videojuegos que se basan en la lectura de una historia en donde (a veces) se pueden decidir diferentes opciones y esas opciones repercuten a futuro"
+    }
 # Endpoints:
 - ENDPOINT METODO GET:
 
