@@ -5,9 +5,11 @@ function base64url_encode($data) {
     return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
 }
 class AuthApiController extends ApiController {
+    
     public function __construct() {
         parent::__construct();
     }
+
     public function getToken() {
         // Obtener "Basic base64(user:pass)
         $basic = $this->secHelper->getAuthHeader();
@@ -45,8 +47,9 @@ class AuthApiController extends ApiController {
             $signature = base64url_encode($signature);
             $token = "$header.$payload.$signature";
              $this->view->response($token,200);
-        }else{
+        } else {
             $this->view->response('No autorizado', 401);
         }
     }
+
 }
