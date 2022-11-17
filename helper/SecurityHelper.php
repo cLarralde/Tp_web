@@ -4,6 +4,7 @@ class SecurityHelper
     function getToken() {
         $auth = $this->getAuthHeader(); // Bearer header.payload.signature
         $auth = explode(" ", $auth);
+       
         if($auth[0]!="Bearer" || count($auth) != 2){
             return array();
         }

@@ -40,7 +40,8 @@ class CategoryApiController extends ApiController
       $value = $params[':VALUE'];
       $categories = $this->categoryModel->getCategories();
       if ($categories[1]->$field) {
-        if (!empty(($fieldValue = $this->categoryModel->getCategoriesFieldValue($field, $value)))) {
+        $fieldValue = $this->categoryModel->getCategoriesFieldValue($field, $value);
+        if (!empty($fieldValue)) {
           $this->view->response($fieldValue, 200);
         } else {
           $this->view->response("No se encontro el campo $field con el valor $value", 404);
@@ -70,7 +71,7 @@ class CategoryApiController extends ApiController
         $categoria_id = $this->categoryModel->insertNewCategory($nombre, $descripcion);
         $categoriaNueva = $this->categoryModel->getCat($categoria_id);
         if ($categoriaNueva) {
-          $this->view->response("Sea creado la categoria=$categoriaNueva", 201);
+          $this->view->response("Sea creado la categoria=$categoriaNueva->id", 201);
         } else {
           $this->view->response("La categoria no fue creada", 400);
         }
