@@ -6,8 +6,8 @@ class CategoryModel {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=gameroom;charset=utf8', 'root', '');
     }
 
-   public function getOrderCategories($field,$order) { //SELECCIONA TODAS LAS CATEGORIAS
-    $query = $this->db->prepare('SELECT * FROM categorias ORDER BY '.$field.' '.$order.''); //Revisar Belen o Lucho
+   public function getOrderCategories($field,$order) {
+    $query = $this->db->prepare('SELECT * FROM categorias ORDER BY '.$field.' '.$order.'');
     $query->execute();
     return $query->fetchAll(PDO::FETCH_OBJ); 
    }
@@ -24,7 +24,7 @@ class CategoryModel {
     return $query->fetchAll(PDO:: FETCH_OBJ);
   }
 
-   public function getCategories() { //SELECCIONA TODAS LAS CATEGORIAS
+   public function getCategories() {
         $query = $this->db->prepare('SELECT * FROM categorias');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ); 
@@ -36,13 +36,13 @@ class CategoryModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-   public function insertNewCategory($name, $description) { //INSERTA UNA CATEGORIA EN LA BD
+   public function insertNewCategory($name, $description) {
         $query = $this->db->prepare('INSERT INTO `categorias` (`nombre`, `descripcionCat`) VALUES (?,?)');
         $query->execute([$name, $description]);
         return $this->db->lastInsertId();
     }
 
-   public function editCategory($catId, $catName, $catDescription) { //EDITA UN ITEM DE LA BD
+   public function editCategory($catId, $catName, $catDescription) {
         $query = $this->db->prepare("UPDATE `categorias` SET nombre=? , descripcionCat=? WHERE id=?");
         $query->execute([$catName, $catDescription, $catId]);
        

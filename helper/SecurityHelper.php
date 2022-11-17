@@ -1,6 +1,5 @@
 <?php
-class SecurityHelper
-{
+class SecurityHelper {
     function getToken() {
         $auth = $this->getAuthHeader(); // Bearer header.payload.signature
         $auth = explode(" ", $auth);
@@ -25,7 +24,7 @@ class SecurityHelper
         return $payload;
     }
 
-    function isLoggedIn(){
+    function isLoggedIn() {
         $payload = $this->getToken();
         if(isset($payload->id))
             return true;

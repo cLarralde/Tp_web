@@ -6,7 +6,6 @@ class APIView {
         header("HTTP/1.1 {$status} " . $this->_requestStatus($status));
         echo json_encode($data);
     }
-    // Devuelve el status de respuesta según el código solicitado.
     private function _requestStatus($code) {
         $status = array(
             200 => "OK",
