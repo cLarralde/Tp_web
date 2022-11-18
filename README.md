@@ -1,5 +1,5 @@
-# API REST de Juegos y Categorias
-Creada por Fernando Gutarra y Carolina Larralde, cuyo objetivo es poder permitir a los clientes el acceso y consumo mediante metodos de protocolos HTTP de una base de datos de videojuegos en el cual hay diferentes juegos con su respectiva valorizacion, descripcion y demas datos de interes para un blog de videojuegos, asi como tambien diferentes categorias junto con sus descripciones, sin la creacion de la parte front del codigo (Que es posible encontrarlo en la primera entrega del TPE)
+# API REST Gameroom
+Creada por Fernando Gutarra y Carolina Larralde, cuyo objetivo es poder permitir a los clientes el acceso y consumo mediante metodos de protocolos HTTP de una base de datos de videojuegos en la cual hay diferentes juegos con su respectiva valorizacion, descripcion y demas datos de interes para un blog de videojuegos, asi como tambien diferentes categorias junto con sus descripciones, sin la creacion de la parte front del codigo (Que es posible encontrarlo en la primera entrega del TPE)
 
 # Importantes para empezar:
 ## 1)Importar la base de datos
