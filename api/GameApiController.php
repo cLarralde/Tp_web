@@ -20,14 +20,19 @@ class GameApiController extends ApiController {
     } else {
       $fieldOrder = 'nombre'; 
     };
+    $columnNames = $this->gameModel->getColumns();
+    for ($i=0; $i < count($columnNames) ; $i++) { 
+         if($columnNames[$i] == $fieldOrder){
+           $validateField = $fieldOrder;
+          }
+    } 
     if (isset($params[':ORDER'])) {
       $order = 'DESC'; 
     } else {
       $order = 'ASC'; 
     };
-    $games = $this->gameModel->getGames();
-    if (isset($games[1]->$fieldOrder)) {
-      $orderedGames = $this->gameModel->getOrderGames($fieldOrder, $order);
+    if (isset($validateField)) {
+      $orderedGames = $this->gameModel->getOrderGames($validateField, $order);
       return $this->view->response($orderedGames, 200);
     } else {
       return $this->view->response("no existe el campo designado para ordenar = '{$fieldOrder}' en la tabla de Juegos", 404);
@@ -53,9 +58,14 @@ class GameApiController extends ApiController {
     if (isset($params[':FIELD']) && ($params[':VALUE'])) {
       $field = $params[':FIELD'];
       $value = $params[':VALUE'];
-      $games = $this->gameModel->getGames();
-      if (isset($games[1]->$field)) {
-        $filterGames = $this->gameModel->getFilterGames($field, $value);
+      $columnNames = $this->gameModel->getColumns();
+      for ($i=0; $i < count($columnNames) ; $i++) { 
+          if($columnNames[$i] == $field) {
+             $validateField = $field;
+          }
+      } 
+      if (isset($validateField)) {
+        $filterGames = $this->gameModel->getFilterGames($validateField, $value);
         if (!empty($filterGames)) {
           $this->view->response($filterGames, 200);
         } else {

@@ -11,18 +11,23 @@ class CategoryApiController extends ApiController {
 
   public function getOrderCategories($params = []) {
     if (isset($params[':FIELD'])) {
-      $fieldOrder = $params[':FIELD'];
+      $fieldOrder = $params[':FIELD']; 
     } else {
       $fieldOrder = 'id'; 
     }
+    $columnNames = $this->categoryModel->getColumns();
+    for ($i=0; $i < count($columnNames) ; $i++) { 
+          if($columnNames[$i] == $fieldOrder){
+            $validateField = $fieldOrder;
+          }
+    } 
     if (isset($params[':ORDER'])) {
       $order = 'DESC';
     } else {
       $order = 'ASC';
     }
-    $categories = $this->categoryModel->getCategories();
-    if (isset($categories[1]->$fieldOrder)) {
-      $orderedCategories = $this->categoryModel->getOrderCategories($fieldOrder, $order);
+    if (isset($validateField)) {
+      $orderedCategories = $this->categoryModel->getOrderCategories($validateField, $order);
       return $this->view->response($orderedCategories, 200);
     } else {
       return $this->view->response("No existe el campo a ordenar '{$fieldOrder}' en la tabla de Categorias", 404);
@@ -35,12 +40,17 @@ class CategoryApiController extends ApiController {
   }
 
   public function getFilterCategories($params = []) {
-    if (isset($params[':FIELD']) || ($params[':VALUE'])) {
+    if (isset($params[':FIELD']) && ($params[':VALUE'])) {
       $filterField = $params[':FIELD'];
       $filterValue = $params[':VALUE'];
-      $categories = $this->categoryModel->getCategories();
-      if (isset($categories[1]->$filterField)) {
-        $filterCategories = $this->categoryModel->getFilterCategories($filterField, $filterValue);
+      $columnNames = $this->categoryModel->getColumns();
+      for ($i=0; $i < count($columnNames) ; $i++) { 
+           if($columnNames[$i] == $filterField){
+             $validateField = $filterField;
+           }
+       } 
+      if (isset($validateField)) {
+        $filterCategories = $this->categoryModel->getFilterCategories($validateField, $filterValue);
         if (!empty($filterCategories)) {
           $this->view->response($filterCategories, 200);
         } else {

@@ -7,6 +7,13 @@ class GameModel {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=gameroom;charset=utf8', 'root', '');
     }
 
+    public function getColumns() {
+        $query = $this->db->prepare('SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
+        WHERE TABLE_SCHEMA = "gameroom" AND TABLE_NAME = "juegos"');
+        $query->execute();
+        return $query->fetchALL(PDO::FETCH_COLUMN);
+    }
+
     public function getOrderGames($field, $order) {
         $query = $this->db->prepare('SELECT * FROM juegos ORDER BY ' . $field . ' ' . $order . '');
         $query->execute();
@@ -43,7 +50,7 @@ class GameModel {
         return $this->db->lastInsertId();
     }
 
-    function editGame($id, $logo, $name, $date, $description, $value, $size, $price, $fkGenre) {
+    public function editGame($id, $logo, $name, $date, $description, $value, $size, $price, $fkGenre) {
         $query = $this->db->prepare("UPDATE `juegos` SET logo=? ,nombre=? ,fecha_lanzamiento=? ,descripcion=? ,valorizacion=? ,peso=? ,precio=?,fk_id_categoria=? WHERE id=?");
         $query->execute([$logo,  $name, $date, $description, $value, $size, $price, $fkGenre, $id]);
         return $query->fetch(PDO::FETCH_OBJ);
