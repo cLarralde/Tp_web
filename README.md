@@ -120,7 +120,8 @@ El endpoint de la API es: http://localhost/tucarpetalocal/Tp_web/api/juegos para
         *Ejemplo del endpoint: 
             http://localhost/tucarpetalocal/Tp_web/api/juegos/2
             http://localhost/tucarpetalocal/Tp_web/api/categorias/2
-              ### ejemplo POST Y PUT:
+
+    ### ejemplo POST Y PUT:
     #### Juegos:
     ```json
     {
